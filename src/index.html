@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Wonerama Configuration</title>
+	<title>Wonderama Configuration</title>
 	<script src="js/jquery-1.8.1.min.js"></script>
 	<script>
 		String.prototype.startsWith = function(str) {return (this.match("^"+str)==str)}
@@ -72,10 +72,30 @@
 
 <h1>Wonderama Setup</h1>
 
-<p>What computer is this?</p>
-<a href="#" onclick="setComputer('L1')">Left 1</a>    |    <a href="#" onclick="setComputer('M')">Centre</a>    |    <a href="#" onclick="setComputer('R1')">Right 1</a>
+<h2>Selecting screen</h2>
+
+<ol>
+<li>Select screen below to which this screen is to be placed</li>
+<li>Click to continue to the next step when done with selection and placement of screens</li>
+</ol>
+
 <br />
+
+<a href="#" onclick="setComputer('L1')">
+  <img src="images/monitor_slaveleft.png" weight="316" height="237">
+</a>
+
+<a href="#" onclick="setComputer('M')">
+<img src="images/monitor_master.png" weight="316" height="237">
+</a>
+
+<a href="#" onclick="setComputer('R1')">
+<img src="images/monitor_slaveright.png" weight="316" height="237">
+</a>
+<br /><br />
+
 <a href="viewer.html">Continue to next step</a>
+
 
 </body>
 </html>
