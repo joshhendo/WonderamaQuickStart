@@ -323,10 +323,10 @@ function getQueryStringVars() {
             rot = Number(Get_Cookie('rot'));
       }
 
-			var relaySocket = new WebSocket("ws://192.168.0.233:3000/relay");
+			var relaySocket = new WebSocket("ws://192.168.0.108:3000/ks1205");
 
 			relaySocket.onopen = function () { console.log("relaySocket Connection established"); };
-    	relaySocket.onclose = function () { console.log("relaySocket Connection closed"); }
+    		relaySocket.onclose = function () { console.log("relaySocket Connection closed"); }
 			relaySocket.onerror = function(evt) { console.log("relaySocket error."); };
 
 			relaySocket.onmessage = function (evt) {

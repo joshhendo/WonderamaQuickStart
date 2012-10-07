@@ -1,9 +1,115 @@
 <html>
 <head>
 	<title>Wonderama Configuration</title>
-	<script src="js/jquery-1.8.1.min.js"></script>
-	<script>
+	<script>	
 		String.prototype.startsWith = function(str) {return (this.match("^"+str)==str)}
+		
+		// Set some global variables
+		var gPosition = '';
+		
+		// Some WebSocket stuff
+		var relaySocket  = new WebSocket("ws://192.168.0.108:3001/ks1205");
+		relaySocket.onopen  = function ()
+		{
+			console.log("relaySocket Connection established");
+		};
+		
+		relaySocket.onclose  = function ()
+		{
+			console.log("relaySocket Connection closed");
+		}
+		
+		relaySocket.onerror  = function(evt)
+		{
+			console.log("relaySocket error.");
+		};
+		
+		relaySocket.onmessage  = function (evt)
+		{
+			console.log("recv:"+ evt.data);
+			// Interpret message
+			
+			var message = new Array();
+			message = evt.data.split("#");
+			
+			if (message[0] == "goto")
+			{
+				GoTo(message[1]);
+			}
+			
+			if (message[0] == "query")
+			{
+				Query(message[1]);	
+			}
+			
+			if (message[0] == "exist")
+			{
+				Exist(message[1]);	
+			}
+			
+		}
+		
+		function doSend(message)
+		{
+			 console.log("send:"+message);
+			 relaySocket.send(message);
+		}		
+		
+		// Hide appropriate div's
+		function OnStart()
+		{
+			document.getElementById('none').style.display = '';
+			document.getElementById('master').style.display = 'none';
+			document.getElementById('slave').style.display  = 'none';
+		}
+		
+		// Listen for keypresses
+		function OnKey(evt)
+		{
+			var key = (evt) ? evt.which : evt.keyCode;
+			
+			// Key 13 == ENTER
+			if (key == 13 && gPosition == 'M')
+			{
+				// Direct all slaves to go to the next page
+				doSend('goto#next');
+				
+				// Go to next page yourself.
+				GoTo('next');
+			}
+		}
+		
+		function GoTo(where)
+		{
+			if (where == "next")
+			{
+				window.location = "http://google.com";	
+			}
+		}
+		
+		// Respond to query if current position matches 
+		function Query(position)
+		{
+			if (position == gPosition)
+			{
+				doSend('exist#' + position);	
+			}
+		}
+		
+		function Exist(position)
+		{
+			if (position == gPosition)
+			{
+				alert('The screen you attempted to select already exists. Please select another one.');
+				gPosition == '';
+				OnStart();
+			}
+		}
+		
+		function SendQuery(position)
+		{
+			doSend('query#' + position);	
+		}
 
 		function Set_Cookie( name, value, expires, path, domain, secure )
 		{
@@ -33,6 +139,7 @@
 
 		function setComputer(position)
 		{
+			gPosition = position;
 			Set_Cookie( 'position', position, 30, '/', '', '' );
 
 			// Now we want to set a default offset based on the position.
@@ -54,7 +161,9 @@
 
 				setMaster(false);
 			}
-
+			
+			SendQuery(position);
+			
 		}
 
 		function setRotation(rot)
@@ -65,10 +174,27 @@
 		function setMaster(master)
 		{
 			Set_Cookie( 'master', master, 30, '/', '', '' );
+			
+			if (master)
+			{
+				document.getElementById('none').style.display = 'none';
+				document.getElementById('master').style.display = '';
+				document.getElementById('slave').style.display  = 'none';
+			}
+			else
+			{
+				document.getElementById('none').style.display = 'none';
+				document.getElementById('master').style.display = 'none';
+				document.getElementById('slave').style.display  = '';
+			}
+			
 		}
 	</script>
+    
+<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+
+<body onload="OnStart()" onKeyPress="OnKey(event)">
 
 <h1>Wonderama Setup</h1>
 
@@ -79,23 +205,31 @@
 <li>Click to continue to the next step when done with selection and placement of screens</li>
 </ol>
 
-<br />
+<p><br />
+  
+  <a href="#" onClick="setComputer('L1')">
+  <img src="images/monitor_slaveleft.png" weight="316" height="237">
+  </a>
+  
+  <a href="#" onClick="setComputer('M')">
+  <img src="images/monitor_master.png" weight="316" height="237">
+  </a>
+  
+  <a href="#" onClick="setComputer('R1')">
+  <img src="images/monitor_slaveright.png" weight="316" height="237">
+  </a>
+  <br /><br />
+</p>
 
-<a href="#" onclick="setComputer('L1')">
-<img src="images/monitor_slaveleft.png" weight="316" height="237">
-</a>
-
-<a href="#" onclick="setComputer('M')">
-<img src="images/monitor_master.png" weight="316" height="237">
-</a>
-
-<a href="#" onclick="setComputer('R1')">
-<img src="images/monitor_slaveright.png" weight="316" height="237">
-</a>
-<br /><br />
-
-
-<a href="viewer.html">Continue to next step</a>
+<div id="none">
+	<p>You need to select your position before being able to continue.</p>
+</div>
+<div id="master">
+	<p>You are the master. Press ENTER to continue.</p>
+</div>
+<div id="slave">
+	<p>You are a slave. You will continue when the Mater continues.</p>
+</div>
 
 </body>
 </html>
