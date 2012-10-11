@@ -7,11 +7,11 @@
 <h3>KML File Upload:</h3>
 
 Select a KML file to upload: <br />
-<form action="UploadServlet" method="post"
-                        enctype="multipart/form-data">
-<input type="file" name="file" size="50" />
+<form action="upload_file.php" method="post"
+enctype="multipart/form-data">
+<input type="file" name="file" id="file" />
 <br />
-<input type="submit" value="Upload File" />
+<input type="submit" name="submit" value="Upload File" />
 </form>
 
 </body>
