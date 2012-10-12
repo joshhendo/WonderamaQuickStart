@@ -2,8 +2,6 @@
 <head>
 	<title>Wonderama Configuration</title>
 
-	<link rel="stylesheet" href="css/choose.css" type="text/css">
-
 	<script type="text/javascript" src="js/cookies.js"></script>
 
 	<script>	
@@ -175,57 +173,57 @@
 
 <body onLoad="OnStart()" onKeyPress="OnKey(event)">
 
-<h1>Wonderama Setup</h1>
-
-<h2>Selecting screen</h2>
-
-<ol>
-<li>Select number of screens to be used</li>
-<li>Select screen below to which this screen is to be placed</li>
-<li>Click to continue to the next step when done with selection and placement of screens</li>
-</ol>
-
-<p><label>Number of screens:</label>
-<select name="screens"/>
-<option value="1" selected="selected">5</option>
-</select></p>
-
-
-<div id="five_screens">
-<p><br />
-  
-  <a href="#" onClick="setComputer('L2')" style="text-decoration:  none;">
-  <img src="images/monitor_L2.png" width="152" height="254"/>
-  </a>
-
-  <a href="#" onClick="setComputer('L1')" style="text-decoration:  none;">
-  <img src="images/monitor_L1.png" width="106" height="254"/>
-  </a>
-  
-  <a href="#" onClick="setComputer('M')" style="text-decoration:  none;">
-  <img src="images/monitor_M.png" width="106" height="254"/>
-  </a>
-  
-  <a href="#" onClick="setComputer('R1')" style="text-decoration:  none;">
-  <img src="images/monitor_R1.png" width="104" height="254"/>
-  </a>
-
-  <a href="#" onClick="setComputer('R2')" style="text-decoration:  none;">
-  <img src="images/monitor_R2.png" width="152" height="254"/>
-  </a>
-  <br /><br />
-</p>
+<div id="Wrap">
+	<div class="wrapper">	
+		<h1>Wonderama Setup</h1>
+    </div>
 </div>
+<div id="Content" class="wrapper">
+	<h2>Selecting screen</h2>
+    
+    <ol>
+		<li>Select number of screens to be used</li>
+		<li>Select screen below to which this screen is to be placed</li>
+		<li>Click to continue to the next step when done with selection and placement of screens</li>
+	</ol>
 
-<div id="none">
-	<p>You need to select your position before being able to continue.</p>
+	<label>Number of screens:</label>
+	<select name="screens"/>
+		<option value="1" selected="selected">5</option>
+	</select>
+    
+    
+    <div id="Screens">
+    	<div id="none">
+		<p>You need to select your position before being able to continue.</p>
+		</div>
+		<div id="master">
+			<p>You are the master. Press ENTER to continue.</p>
+		</div>
+		<div id="slave">
+			<p>You are a slave. You will continue when the Mater continues.</p>
+		</div>
+      <a href="#" onClick="setComputer('L2')">
+      <img src="images/monitor_L2.png" width="152" height="254"/>
+      </a>
+    
+      <a href="#" onClick="setComputer('L1')">
+      <img src="images/monitor_L1.png" width="106" height="254"/>
+      </a>
+      
+      <a href="#" onClick="setComputer('M')">
+      <img src="images/monitor_M.png" width="106" height="254"/>
+      </a>
+      
+      <a href="#" onClick="setComputer('R1')">
+      <img src="images/monitor_R1.png" width="104" height="254"/>
+      </a>
+    
+      <a href="#" onClick="setComputer('R2')">
+      <img src="images/monitor_R2.png" width="152" height="254"/>
+      </a>
+    </div>
+   
 </div>
-<div id="master">
-	<p>You are the master. Press ENTER to continue.</p>
-</div>
-<div id="slave">
-	<p>You are a slave. You will continue when the Mater continues.</p>
-</div>
-
 </body>
 </html>
