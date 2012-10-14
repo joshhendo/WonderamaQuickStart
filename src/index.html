@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Browser support</title>
+
+<style type="text/css">
+.support{
+	color:green;
+	}
+
+.unsupport{
+	color:red;
+	}
+</style>
+
+<script type="text/javascript" src="js/browserdetect.js"></script>
+
+  <script type="text/javascript" src="https://www.google.com/jsapi"> </script>
+  <script type="text/javascript">
+    var ge;
+    google.load("earth", "1");
+
+    function init() {
+      google.earth.createInstance('map3d', initCB, failureCB);
+    }
+
+    function initCB(instance) {
+      ge = instance;
+      ge.getWindow().setVisibility(true);
+    }
+
+    function failureCB(errorCode) {
+    }
+
+    google.setOnLoadCallback(init);
+  </script>
+
+</head>
+<body>
+<script type="text/javascript">
+
+document.write('You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS)
+</script>
+
+</br>
+
+<script type="text/javascript">
+
+
+if (BrowserDetect.browser=='Firefox')
+	{
+	document.write('<p class="support">Supported')
+	document.write("<img src='images/supported.png'>");
+	}
+else if (BrowserDetect.browser=='Chrome')
+	{
+	document.write('<p class="support">Supported')
+	document.write("<img src='images/supported.png'></p>");
+	}
+else 	{
+	document.write('<p class="unsupport">Unsupported')
+	document.write("<img src='images/unsupported.png'></p>")
+	document.write('Your browser isn\'t supported, please download one of the recommended browsers below')
+	document.write('<ul><li><a href="http://www.mozilla.org">Mozilla Firefox</a></li>')
+	document.write('<li><a href="http://www.google.com/chrome">Google Chrome</a></li></ul>');
+	}
+</script>
+
+<div id="map3d" style="height: 400px; width: 600px;"></div>
+
+</body>
+</html>
