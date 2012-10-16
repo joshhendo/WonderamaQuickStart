@@ -66,6 +66,13 @@
 			document.getElementById('none').style.display = '';
 			document.getElementById('master').style.display = 'none';
 			document.getElementById('slave').style.display  = 'none';
+			document.getElementById('continue').style.display = 'none';
+			
+			document['IMGL2'].src = "images/monitor_L2_grey.png";
+			document['IMGL1'].src = "images/monitor_L1_grey.png";
+			document['IMGM'].src = "images/monitor_M_grey.png";
+			document['IMGR1'].src = "images/monitor_R1_grey.png";
+			document['IMGR2'].src = "images/monitor_R2_grey.png";
 		}
 		
 		// Listen for keypresses
@@ -76,11 +83,7 @@
 			// Key 13 == ENTER
 			if (key == 13 && gPosition == 'M')
 			{
-				// Direct all slaves to go to the next page
-				doSend('goto#next');
-				
-				// Go to next page yourself.
-				GoTo('next');
+				continueToViewer();
 			}
 		}
 		
@@ -115,9 +118,25 @@
 		{
 			doSend('query#' + position);	
 		}
+		
+		function continueToViewer()
+		{
+			if (gPosition == 'M')
+			{
+				// Direct all slaves to go to the next page
+				doSend('goto#next');
+					
+				// Go to next page yourself.
+				GoTo('next');
+			}
+		}
 
 		function setComputer(position)
 		{
+			// Change image to ungreyed image
+			OnStart();
+			document['IMG' + position].src = "images/monitor_" + position + ".png";
+			
 			gPosition = position;
 			Set_Cookie( 'position', position, 30, '/', '', '' );
 
@@ -125,7 +144,7 @@
 			if (position == 'M')
 			{
 				setRotation(0);
-				setMaster(true)
+				setMaster(true);
 			}
 			else
 			{
@@ -159,14 +178,27 @@
 				document.getElementById('none').style.display = 'none';
 				document.getElementById('master').style.display = '';
 				document.getElementById('slave').style.display  = 'none';
+				document.getElementById('continue').style.display = '';
 			}
 			else
 			{
 				document.getElementById('none').style.display = 'none';
 				document.getElementById('master').style.display = 'none';
 				document.getElementById('slave').style.display  = '';
+				document.getElementById('continue').style.display = 'none';
 			}
 			
+		}
+		
+		function clearConfig()
+		{
+			// Remove all existing cookies
+			Set_Cookie( 'master', '', 0, '/', '', '' );
+			Set_Cookie( 'rot', '', 0, '/', '', '' );
+			Set_Cookie( 'position', '', 0, '/', '', '' );
+			
+			// Set all the layout and images back to the default
+			OnStart();
 		}
 	</script>
     
@@ -199,25 +231,32 @@
 		<div id="slave">
 			<p>You are a slave. You will continue when the Master continues.</p>
 		</div>
-      <a href="#" onClick="setComputer('L2')">
-      <img src="images/monitor_L2.png" width="152" height="254"/>
-      </a>
-    
-      <a href="#" onClick="setComputer('L1')">
-      <img src="images/monitor_L1.png" width="106" height="254"/>
-      </a>
-      
-      <a href="#" onClick="setComputer('M')">
-      <img src="images/monitor_M.png" width="106" height="254"/>
-      </a>
-      
-      <a href="#" onClick="setComputer('R1')">
-      <img src="images/monitor_R1.png" width="104" height="254"/>
-      </a>
-    
-      <a href="#" onClick="setComputer('R2')">
-      <img src="images/monitor_R2.png" width="152" height="254"/>
-      </a>
+      <p>
+        <input type="button" name="clear" id="clear" value="Clear" onClick="clearConfig()">
+      </p>
+      <p>
+      	<a href="#" onClick="setComputer('L2')">
+        <img name="IMGL2" src="images/monitor_L2.png" width="152" height="254"/>
+      	</a>
+        
+        <a href="#" onClick="setComputer('L1')">
+        <img name="IMGL1" src="images/monitor_L1.png" width="106" height="254"/>
+        </a>
+        
+        <a href="#" onClick="setComputer('M')">
+        <img name="IMGM" src="images/monitor_M.png" width="106" height="254"/>
+        </a>
+        
+        <a href="#" onClick="setComputer('R1')">
+        <img name="IMGR1" src="images/monitor_R1.png" width="104" height="254"/>
+        </a>
+        
+        <a href="#" onClick="setComputer('R2')">
+        <img name="IMGR2" src="images/monitor_R2.png" width="152" height="254"/>
+        </a></p>
+        <div id="continue">
+        	<input type="button" name="btnContinue" id="btnContinue" value="Continue" onClick="continueToViewer()">
+        </div>
     </div>
    
 </div>
