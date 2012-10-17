@@ -1,10 +1,10 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Wonderama Configuration</title>
-    
-    <link href="css/choose.css" rel="stylesheet" type="text/css">
-
-	<script type="text/javascript" src="js/cookies.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Wondarama Configuration</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script type="text/javascript" src="js/cookies.js"></script>
 
 	<script>	
 		String.prototype.startsWith = function(str) {return (this.match("^"+str)==str)}
@@ -201,19 +201,16 @@
 			OnStart();
 		}
 	</script>
-    
-
 </head>
 
 <body onLoad="OnStart()" onKeyPress="OnKey(event)">
-
-<div id="Wrap">
-	<div class="wrapper">	
+<div id="Wrapper1">
+	<div class="wrap">	
 		<h1>Wonderama Setup</h1>
     </div>
 </div>
-<div id="Content" class="wrapper">
-	<h2>Selecting screen</h2>
+<div id="Content" class="wrap">
+	<h2 class="title">Selecting screen</h2>
     
 	<ol>
 	   <li>Select screen below to which this screen is to be placed</li>
@@ -223,16 +220,16 @@
     
     <div id="Screens">
     	<div id="none">
-		<p>You need to select your position before being able to continue.</p>
+			You need to select your position before being able to continue.
 		</div>
 		<div id="master">
-			<p>You are the master. Press ENTER to continue.</p>
+			You are the master. Press ENTER to continue.
 		</div>
 		<div id="slave">
-			<p>You are a slave. You will continue when the Master continues.</p>
+			You are a slave. You will continue when the Master continues.
 		</div>
-      <p>
-        <input type="button" name="clear" id="clear" value="Clear" onClick="clearConfig()">
+      <p> 
+        <!-- <input class="button"  type="button" name="clear" id="clear" value="Clear" onClick="clearConfig()" />  -->
       </p>
       <p>
       	<a href="#" onClick="setComputer('L2')">
@@ -254,8 +251,12 @@
         <a href="#" onClick="setComputer('R2')">
         <img name="IMGR2" src="images/monitor_R2.png" width="152" height="254"/>
         </a></p>
+        <div id="BtnClear">
+        	<button type="submit" value="clear" id="clear" onclick="clearConfig()">Clear</button>
+        </div>
         <div id="continue">
-        	<input type="button" name="btnContinue" id="btnContinue" value="Continue" onClick="continueToViewer()">
+       		<button type="submit" value="Continue" id="btnContinue" onclick="continueToViewer()">Continue</button>
+        	<!-- <input type="button" name="btnContinue" id="btnContinue" value="Continue" onClick="continueToViewer()" /> -->
         </div>
     </div>
    
