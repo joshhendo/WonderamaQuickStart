@@ -1,9 +1,11 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Wonderama - Confirm Configurations</title>
-	<script src="js/jquery-1.8.1.min.js"></script>
-	<script>
-		String.prototype.startsWith = function(str) {return (this.match("^"+str)==str)}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Confirmation Settings</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script>
+	String.prototype.startsWith = function(str) {return (this.match("^"+str)==str)}
 
 		function Set_Cookie( name, value, expires, path, domain, secure )
 		{
@@ -70,62 +72,53 @@
 			return null;
 		}
 	}
-	</script>
+</script>
 
 <script type="text/javascript">
-
-function LoadPosition() {
-if (Get_Cookie('position') == "M")
+function LoadPosition() 
+{
+	if (Get_Cookie('position') == "M")
 	{
-	document.getElementById('poslabel').innerHTML = 'Master';
+		document.getElementById('poslabel').innerHTML = 'Master';
 	}
-else if (Get_Cookie('position') == "L1")
+	else if (Get_Cookie('position') == "L1")
 	{
-	document.getElementById('poslabel').innerHTML = 'Slave Left 1';
+		document.getElementById('poslabel').innerHTML = 'Slave Left 1';
 	}
-else if (Get_Cookie('position') == "L2")
+	else if (Get_Cookie('position') == "L2")
 	{
-	document.getElementById('poslabel').innerHTML = 'Slave Left 2';
+		document.getElementById('poslabel').innerHTML = 'Slave Left 2';
 	}
-else if (Get_Cookie('position') == "R1")
+	else if (Get_Cookie('position') == "R1")
 	{
-	document.getElementById('poslabel').innerHTML = 'Slave Right 1';
+		document.getElementById('poslabel').innerHTML = 'Slave Right 1';
 	}
-else if (Get_Cookie('position') == "R2")
+	else if (Get_Cookie('position') == "R2")
 	{
-	document.getElementById('poslabel').innerHTML = 'Slave Right 2';
+		document.getElementById('poslabel').innerHTML = 'Slave Right 2';
 	};
 };
 </script>
-
 </head>
-<body onload="LoadPosition();">
-
-<h1>Confirm settings</h1>
-
-<p>Please confirm the configuration settings below that have been set for your computer</p>
-
-<p>
-This computer is the <b>"<label id="poslabel">NULL</label>"</b>
-</br>
-It is rotated on a <b>"<script>document.write(Get_Cookie('rot'))</script>"</b> degree angle
-</br>
-Other necessary values for users to acknowledge
-(Rotation? & NFOV shown on Liquid Galaxy I guess)
-</p>
-
-<br />
-Click "Continue" to confirm these values for the Liquid Galaxy
-<br /> 
-<input type="button" value="Continue "onClick="window.location.href='viewer.html'">
-
-<p>
-
-
-Master: <script>document.write(Get_Cookie('master'))</script><br />
-NFOV: <script>document.write(Get_Cookie('nfov'))</script><br />
-
-</p>
-
+<body onLoad="LoadPosition();">
+<div id="Wrapper1">
+	<div class="wrap">
+    	<h1>Confirm settings</h1>
+    </div>
+</div>
+<div class="wrap">
+	<ul style="list-style:none;">
+    	<li>Please confirm the configuration settings below that have been set for your computer</li>
+        <li>This computer is the NULL</li>
+        <li>It is rotated on a "<script>document.write(Get_Cookie('rot'))</script>"degree angle.</li>
+    	<li>Other necessary values for users to acknowledge(Rotation? & NFOV shown on Liquid Galaxy I guess)</li>
+        <li style="font-weight:bold">Click "Continue" to confirm these values for the Liquid Galaxy</li>
+        <li style="margin: 0px; padding: 0px"><input type="button" value="Continue "onClick="window.location.href='viewer.html'"></li>
+        <li></li>
+        <li></li>
+        <li>Master: <script>document.write(Get_Cookie('master'))</script></li>
+        <li>NFOV: <script>document.write(Get_Cookie('nfov'))</script></li>
+    </ul>
+</div>
 </body>
 </html>
