@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Browser Support Plugin</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/browserdetect.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+function CheckBrowser(BrowserSupport)
+{
+	if(BrowserDetect.browser == 'Firefox')
+	{
+		alert('You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
+			  + "\n" + 'Congratulation !! Your browser is Supported.');
+	}
+	else if (BrowserDetect.browser=='Chrome')
+	{
+		alert('You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
+			  + "\n" + 'Congratulation !! Your browser is Supported.');
+	}
+	else
+	{
+		alert('You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
+			   + ' Your browser isn\'t supported, please download one of the recommended browsers below');
+	}
+}
+
+function CheckPlugin(ChceckGooglePlugin)
+{
+	if(google.earth.isInstalled())
+	{
+		alert('You have Google Earth Plugin installed');
+	}
+	else
+	{
+		alert(' !! You do not have Google Earth Plugin Installed. Please install now');
+		if(confirm("OK"))
+		{
+			document.location="http://www.google.com/earth/download/ge/agree.html";
+		}
+	}
+	
+}
+</script>
+   <script type="text/javascript">
+    var ge;
+    google.load("earth", "1");
+
+    function init() {
+      google.earth.createInstance('map3d', initCB, failureCB);
+    }
+
+    function initCB(instance) {
+      ge = instance;
+      ge.getWindow().setVisibility(true);
+    }
+
+    function failureCB(errorCode) {
+    }
+
+    google.setOnLoadCallback(init);
+  </script>
+</head>
+
+<body>
+<div id="Wrapper">
+	<div class="wrap">
+    	<div id="CheckBrowser">
+        	<h2>Check Your Browser Support</h2>
+            <p>You must have to check your browser before you go for next step. Click check browser below.</p>
+            <input id="BrowserSupport" type="button" value="1. Check Browser" onclick="CheckBrowser(this.id)" />
+            <input id="CheckGooglePlugin" type="button" value="2. Check Plugin" onclick="CheckPlugin(this.id)" />
+            <input id="BrowserSupport" type="button" value="3. Orientation" onclick="CheckBrowser(this.id)" />
+        </div>
+        <div id="GoogleEarthImage">
+        	<img src="images/googleEarth.png" />
+        </div>
+    </div>
+</div>
+<div id="Content" class="wrap">
+<ul>
+	<li>If your browser is not supported, please download recommended browsers.
+	<li><a href="#">Mozilla Firefox</a></li>
+    <li>||</li>
+    <li><a href="#">Google Chrome</a></li>
+</ul>
+</div>
+</body>
+</html>
