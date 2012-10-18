@@ -4,21 +4,94 @@
 
 <head>
 	<title>Check Previous Configuration</title>
+    
+	<script type="text/javascript" src="js/cookies.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    
+    <script>
+	
+	function OnStart()
+	{
+		document.getElementById('check').style.display = '';
+		document.getElementById('exist').style.display = 'none';
+		
+		if (Check() == true)
+		{
+			document.getElementById('check').style.display = 'none';
+			document.getElementById('exist').style.display = '';
+		}
+		else
+		{
+			// Just incase the configuration is in an inconsistent state, we will clear it.
+			// e.g. position isn't set, but rotation is.
+			ClearConfig();
+			
+			window.location = "choose.html";
+		}
+	}
+	
+	function Check()
+	{
+		// if ANY cookie value isn't set, we can't use the existing configuration
+		if (Get_Cookie('position') == null || Get_Cookie('rot') == null) return false;
+		
+		document.getElementById('current_position').innerHTML = Get_Cookie('position');
+		document.getElementById('current_rot').innerHTML = Get_Cookie('rot');
+		
+		return true;
+	}
+	
+	function ClearConfig()
+	{
+		Set_Cookie( 'master', null, 0, '/', '', '' );
+		Set_Cookie( 'rot', null, 0, '/', '', '' );
+		Set_Cookie( 'position', null, 0, '/', '', '' );
+	}
+	
+	function GoToEarth()
+	{
+		window.location = "final.html";
+	}
+	
+	function GoToViewer()
+	{
+		window.location = "viewer.html";	
+	}
+	
+	function ClearAll()
+	{
+		ClearConfig();
+		window.location = "choose.html";
+	}
+	
+	</script>
+    
 </head>
 
-<body>
-<p>Existing configuraton was detected. The settings are:</p>
-<p>&nbsp;</p>
-<p>What do you want to do?</p>
-<p>
-  <input type="button" name="straight" id="straight" value="Go Straight to Google Earth" />
-</p>
-<p>
-  <input type="button" name="alter" id="alter" value="Alter existing configuration" />
-</p>
-<p>
-  <input type="button" name="clear" id="clear" value="Clear existing configuration" />
-</p>
+<body onLoad="OnStart()">
+
+<div id="check">
+	<p>Checking for existing configuration.</p>
+</div>
+
+<div id="exist">
+    <p>Existing configuraton was detected. The settings are:</p>
+    <p>Position <div id="current_position"></div></p>
+    <p>Rotation <div id="current_rot"></div></p>
+    <p>What do you want to do? Except in special circumstances, you should select the same option on every computer.</p>
+    <p>
+      <input type="button" name="straight" id="straight" value="Go Straight to Google Earth" onClick="GoToEarth()"/>
+    </p>
+    <p>If your computers are setup in the exact same configuration as they were last time, including the positions, then you can jump straight to Google Earth using the current configuration.</p>
+    <p>
+      <input type="button" name="alter" id="alter" value="Alter existing configuration" onClick="GoToViewer()"/>
+    </p>
+    <p>If your computers are setup in a similar configuration as they were last time, but may need small adjustments, then you can use the existing configuration as the defaults for the editor. This will direct you straight to the viewer allowing you to change the field of view and rotation.</p>
+    <p>
+      <input type="button" name="clear" id="clear" value="Clear existing configuration" onClick="ClearAll()"/>
+    </p>
+    <p>If your computers are in a different configuraiton as they were lsat time, select this option. The configuration utility will clear all existing configuration and run from scratch.</p>
+</div>
 </body>
 
 </html>
