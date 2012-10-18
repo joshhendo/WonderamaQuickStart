@@ -9,6 +9,7 @@
 
 	<script>	
 		String.prototype.startsWith = function(str) {return (this.match("^"+str)==str)}
+		String.prototype.endsWith = function(str) {return (this.match(str+"$")==str)}
 		
 		// Set some global variables
 		var gPosition = '';
@@ -90,7 +91,6 @@
 		
 		function GoTo(where)
 		{
-			alert(where);
 			if (where == "viewer")
 			{
 				window.location = "viewer.html";	
@@ -150,14 +150,20 @@
 			}
 			else
 			{
-				positive = 1;
+				positive = -1;
 				if (position.startsWith('L'))
 				{
-					positive = -1;
+					positive = 1;
+				}
+				
+				multiple = 1;
+				if (position.endsWith('2'))
+				{
+					multiple = 2;
 				}
 
 				// Get the offset value
-				setRotation(30*positive);
+				setRotation(30*positive*multiple);
 
 				setMaster(false);
 			}
