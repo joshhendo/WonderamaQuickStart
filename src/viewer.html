@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/viewer.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 </head>
-	<body>
+	<body onLoad="OnStart()">
 
 	<div id="pano" ></div>
 		
@@ -16,18 +16,22 @@
         	<p>L2: 
         	  <input type="button" name="L2L" id="L2L" value="&lt;--" onClick="SendChange('L2', 'L')">
         	  <input type="button" name="L2R" id="L2R" value="--&gt;" onClick="SendChange('L2', 'R')">
+              <input name="L2ROT" id="L2ROT" type="text" size="2">
         	</p>
         	<p>L1: 
         	  <input type="button" name="L1L" id="L1L" value="&lt;--" onClick="SendChange('L1', 'L')">
         	  <input type="button" name="L1R" id="L1R" value="--&gt;" onClick="SendChange('L1', 'R')">
+              <input name="L1ROT" id="L1ROT" type="text" size="2">
         	</p>
         	<p>R1: 
         	  <input type="button" name="R1L" id="R1L" value="&lt;--" onClick="SendChange('R1', 'L')">
         	  <input type="button" name="R1R" id="R1R" value="--&gt;" onClick="SendChange('R1', 'R')">
+              <input name="R1ROT" id="R1ROT" type="text" size="2">
         	</p>
         	<p>R2: 
         	  <input type="button" name="R2L" id="R2L" value="&lt;--" onClick="SendChange('R2', 'L')">
         	  <input type="button" name="R2R" id="R2R" value="--&gt;" onClick="SendChange('R2', 'R')">
+              <input name="R2ROT" id="R2ROT" type="text" size="2">
         	</p>
     </div>
 		
@@ -89,7 +93,7 @@
 	
 	var relaySocket = new WebSocket(confWebSocketServer);
 	
-	relaySocket.onopen = function () { console.log("relaySocket Connection established"); };
+	relaySocket.onopen = function () { console.log("relaySocket Connection established"); OnStart(); };
 	relaySocket.onclose = function () { console.log("relaySocket Connection closed"); }
 	relaySocket.onerror = function(evt) { console.log("relaySocket error."); };
 	
@@ -119,16 +123,23 @@
 						// TODO: Update the cookie as well!
 						if (message[2] == "L")
 						{
-							rot = rot-1;	
+							rot = rot-1;
+							Set_Cookie( 'rot', rot, 30, '/', '', '' );	
 						}
 						
 						if (message[2] == "R")
 						{
-							rot = rot+1;	
+							rot = rot+1;
+							Set_Cookie( 'rot', rot, 30, '/', '', '' );	
 						}
 												
 						NEW_FRAME=true;
 					}
+				}
+				
+				if (message[0] == "reportrot")
+				{
+					doSend('rot#' + Get_Cookie('position') + '#' + Get_Cookie('rot'));	
 				}
 				
 				
@@ -137,6 +148,15 @@
 		else
 		{
 			// What does MASTER do on recving a pkt?
+			message = new Array();
+			message = evt.data.split("#");
+			
+			if (message[0] == "rot")
+			{
+				textfield = document.getElementById(message[1] + "ROT");
+				
+				textfield.value = message[2];
+			}
 		}
 	}
 	
@@ -162,6 +182,21 @@
 	function SendChange(position, value)
 	{
 		doSend('change#' + position + '#' + value);	
+		
+		requestRot();
+	}
+	
+	function requestRot()
+	{
+		doSend('reportrot');	
+	}
+	
+	function OnStart()
+	{
+		if (MASTER)
+		{
+			requestRot();	
+		}
 	}
 	
 	// END K1205
