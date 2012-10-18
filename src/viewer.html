@@ -33,6 +33,9 @@
         	  <input type="button" name="R2R" id="R2R" value="--&gt;" onClick="SendChange('R2', 'R')">
               <input name="R2ROT" id="R2ROT" type="text" size="2">
         	</p>
+            <p>
+              <input type="range" id="FOVSLIDER" min="15" max="90" value="25" onChange="changeFieldOfView()" />
+            </p>
     </div>
 		
 		<div id="options" class="hide">
@@ -490,11 +493,26 @@
 			}
 		}
 		
+		function changeFieldOfView()
+		{
+			
+			var nfov = document.getElementById("FOVSLIDER").value;
+			
+			updateFieldOfView(nfov);
+		}
+		
 		function onContainerMouseWheel( event ) {
 			
 			event = event ? event : window.event;
 			var nfov = fov - ( event.detail ? event.detail * -5 : event.wheelDelta / 15 );
 			
+			document.getElementById("FOVSLIDER").value = nfov;
+			
+			updateFieldOfView(nfov);
+		}
+		
+		function updateFieldOfView(nfov)
+		{
 			nfov = Math.max( 15, Math.min( 90, nfov ) ); // limit 15 < fov < 90
 
 			// alert(nfov);
@@ -509,7 +527,6 @@
 					camera.projectionMatrix = THREE.Matrix4.makePerspective( fov, container.clientWidth / container.clientHeight, 1, 1100 );
 				} )
 				.start();
-
 		}
 
 		function update() {
