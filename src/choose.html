@@ -5,6 +5,7 @@
 <title>Wondarama Configuration</title>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <script type="text/javascript" src="js/cookies.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
 
 	<script>	
 		String.prototype.startsWith = function(str) {return (this.match("^"+str)==str)}
@@ -13,7 +14,7 @@
 		var gPosition = '';
 		
 		// Some WebSocket stuff
-		var relaySocket  = new WebSocket("ws://192.168.0.108:3001/ks1205");
+		var relaySocket  = new WebSocket(confWebSocketServer);
 		relaySocket.onopen  = function ()
 		{
 			console.log("relaySocket Connection established");
@@ -89,7 +90,8 @@
 		
 		function GoTo(where)
 		{
-			if (where == "next")
+			alert(where);
+			if (where == "viewer")
 			{
 				window.location = "viewer.html";	
 			}
@@ -124,10 +126,10 @@
 			if (gPosition == 'M')
 			{
 				// Direct all slaves to go to the next page
-				doSend('goto#next');
+				doSend('goto#viewer');
 					
 				// Go to next page yourself.
-				GoTo('next');
+				GoTo('viewer');
 			}
 		}
 
@@ -255,7 +257,7 @@
         	<button type="submit" value="clear" id="clear" onclick="clearConfig()">Clear</button>
         </div>
         <div id="continue">
-       		<button type="submit" value="Continue" id="btnContinue" onclick="continueToViewer()">Continue</button>
+       		<button type="button" value="Continue" id="btnContinue" onclick="continueToViewer()">Continue</button>
         	<!-- <input type="button" name="btnContinue" id="btnContinue" value="Continue" onClick="continueToViewer()" /> -->
         </div>
     </div>

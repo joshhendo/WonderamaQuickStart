@@ -1,0 +1,1 @@
+var confWebSocketServer = "ws://192.168.0.108:3001/ks1205";
