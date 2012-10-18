@@ -37,7 +37,8 @@
               <input type="range" id="FOVSLIDER" min="15" max="90" value="25" onChange="changeFieldOfView()" />
             </p>
             <p>
-              <select name="texture"></select>
+              <select name="texture" id="texture" onChange="changeTexture()">
+</select>
             </p>
     </div>
 		
@@ -80,6 +81,7 @@
 	var fov = 34, nfov = fov; // Alf 70
 	var rot = 0;
 	var NEW_FRAME = false;
+	var CURRENTTEXTURE = textures[0][1];
 	
 	var qryArgs = getQueryStringVars();
 	
@@ -145,7 +147,7 @@
 				
 				if (message[0] == "reportrot")
 				{
-					doSend('rot#' + Get_Cookie('position') + '#' + Get_Cookie('rot'));	
+					reportRot();	
 				}
 				
 				
@@ -197,12 +199,50 @@
 		doSend('reportrot');	
 	}
 	
+	function reportRot()
+	{
+		if (!MASTER)
+		{
+			doSend('rot#' + Get_Cookie('position') + '#' + Get_Cookie('rot'));
+		}
+	}
+	
 	function OnStart()
 	{
 		if (MASTER)
 		{
-			requestRot();	
+			requestRot();
+			
+			for (var i=0; i < textures.length; i++)
+			{
+				addOption(document.getElementById('texture'), textures[i][0], textures[i][1]);
+			}
 		}
+		else
+		{
+			reportRot();	
+		}
+	}
+	
+	// Populare the texture drop down menu
+	function addOption(selectbox,text,value )
+	{
+		var optn = document.createElement("OPTION");
+		optn.text = text;
+		optn.value = value;
+		selectbox.options.add(optn);
+	}
+	
+	function changeTexture()
+	{
+		// Find out what texture is selected
+		elid = document.getElementById('texture');
+		alert(elid.value);
+		
+		CURRENTTEXTURE = elid.value;
+		
+		// reinitialise
+		initialize();
 	}
 	
 	// END K1205
@@ -332,7 +372,7 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 
 			var faces = 50;
-			mesh = new THREE.Mesh( new THREE.SphereGeometry( sphere_size, 60, 40 ), new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'world.jpg' ) } ) );
+			mesh = new THREE.Mesh( new THREE.SphereGeometry( sphere_size, 60, 40 ), new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( CURRENTTEXTURE ) } ) );
 			mesh.doubleSided = true;
 			scene.add( mesh );
 			
