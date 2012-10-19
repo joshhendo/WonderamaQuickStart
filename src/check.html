@@ -65,10 +65,36 @@
 	}
 	
 	</script>
+
+	<script type="text/javascript">
+	function LoadPosition() 
+	{
+		if (Get_Cookie('position') == "M")
+		{
+		document.getElementById('current_position').innerHTML = 'Master';
+		}
+		else if (Get_Cookie('position') == "L1")
+		{
+		document.getElementById('current_position').innerHTML = 'Slave Left 1';
+		}
+		else if (Get_Cookie('position') == "L2")
+		{
+		document.getElementById('current_position').innerHTML = 'Slave Left 2';
+		}
+		else if (Get_Cookie('position') == "R1")
+		{
+		document.getElementById('current_position').innerHTML = 'Slave Right 1';
+		}
+		else if (Get_Cookie('position') == "R2")
+		{
+		document.getElementById('current_position').innerHTML = 'Slave Right 2';
+		};
+	};
+	</script>
     
 </head>
 
-<body onLoad="OnStart()">
+<body onLoad="OnStart(); LoadPosition();">
 
 <div id="check">
 	<p>Checking for existing configuration.</p>
