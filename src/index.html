@@ -7,38 +7,38 @@
 <script type="text/javascript" src="js/browserdetect.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-function CheckBrowser(BrowserSupport)
+function CheckBrowser()
 {
 	if(BrowserDetect.browser == 'Firefox')
 	{
-		alert('You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
-			  + "\n" + 'Congratulation !! Your browser is Supported.');
+		
+		document.getElementById('browser').innerHTML = 'You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
+			  + '. Your browser is Supported.';
+
 	}
 	else if (BrowserDetect.browser=='Chrome')
 	{
-		alert('You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
-			  + "\n" + 'Congratulation !! Your browser is Supported.');
+		document.getElementById('browser').innerHTML = 'You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
+			  + '. Your browser is Supported.';
 	}
 	else
 	{
-		alert('You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
-			   + ' Your browser isn\'t supported, please download one of the recommended browsers below');
+		document.getElementById('browser').innerHTML = 'You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
+			   + '. Your browser isn\'t supported, please download one of the recommended browsers below';
 	}
 }
 
-function CheckPlugin(ChceckGooglePlugin)
+function CheckPlugin()
 {
 	if(google.earth.isInstalled())
 	{
-		alert('You have Google Earth Plugin installed');
+		document.getElementById('plugin').innerHTML = 'You have Google Earth Plug-in installed';
 	}
 	else
 	{
-		alert(' !! You do not have Google Earth Plugin Installed. Please install now');
-		if(confirm("OK"))
-		{
-			document.location="http://www.google.com/earth/download/ge/agree.html";
-		}
+		document.getElementById('plugin').innerHTML = 'You do not have Google Earth Plug-in Installed. Please install now';
+		document.write('Please click the link to download');
+		document.write('<a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a>');
 	}
 	
 }
@@ -63,15 +63,15 @@ function CheckPlugin(ChceckGooglePlugin)
   </script>
 </head>
 
-<body>
+<body onLoad="CheckBrowser(); CheckPlugin();">
 <div id="Wrapper">
 	<div class="wrap">
     	<div id="CheckBrowser">
         	<h2>Check Your Browser Support</h2>
             <p>You must have to check your browser before you go for next step. Click check browser below.</p>
-            <input id="BrowserSupport" type="button" value="1. Check Browser" onclick="CheckBrowser(this.id)" />
-            <input id="CheckGooglePlugin" type="button" value="2. Check Plugin" onclick="CheckPlugin(this.id)" />
-            <input id="BrowserSupport" type="button" value="3. Orientation" onclick="window.location='orientation.html'" />
+	<div id="browser"></div>
+	<div id="plugin"></div>
+            <input id="BrowserSupport" type="button" value="Orientation" onclick="window.location='orientation.html'" />
         </div>
         <div id="GoogleEarthImage">
         	<img src="images/googleEarth.png" />
@@ -86,5 +86,7 @@ function CheckPlugin(ChceckGooglePlugin)
     <li><a href="http://www.google.com/chrome">Google Chrome</a></li>
 </ul>
 </div>
+
+
 </body>
 </html>
