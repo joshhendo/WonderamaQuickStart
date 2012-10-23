@@ -25,6 +25,7 @@ function CheckBrowser()
 	{
 		document.getElementById('browser').innerHTML = 'You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
 			   + '. Your browser isn\'t supported, please download one of the recommended browsers below';
+		document.getElementById('unsupported').innerHTML = '<ul><li><a href="http://www.mozilla.org">Mozilla Firefox</a></li><li><a href="http://www.google.com/chrome">Google Chrome</a></li></ul>';
 	}
 }
 
@@ -37,8 +38,7 @@ function CheckPlugin()
 	else
 	{
 		document.getElementById('plugin').innerHTML = 'You do not have Google Earth Plug-in Installed. Please install now';
-		document.write('Please click the link to download');
-		document.write('<a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a>');
+		document.getElementById('noplugin').innerHTML = 'Please click the link to download the <a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a>';
 	}
 	
 }
@@ -70,21 +70,15 @@ function CheckPlugin()
         	<h2>Check Your Browser Support</h2>
             <p>You must have to check your browser before you go for next step. Click check browser below.</p>
 	<div id="browser"></div>
+	<div id="unsupported"></div>
 	<div id="plugin"></div>
+	<div id="noplugin"></div>
             <input id="BrowserSupport" type="button" value="Orientation" onclick="window.location='orientation.html'" />
         </div>
         <div id="GoogleEarthImage">
         	<img src="images/googleEarth.png" />
         </div>
     </div>
-</div>
-<div id="Content" class="wrap">
-<ul>
-	<li>If your browser is not supported, please download recommended browsers.
-	<li><a href="http://www.mozilla.org">Mozilla Firefox</a></li>
-    <li>||</li>
-    <li><a href="http://www.google.com/chrome">Google Chrome</a></li>
-</ul>
 </div>
 
 
