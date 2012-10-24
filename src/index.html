@@ -2,62 +2,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Browser Support Plugin</title>
+<title>Browser and Plug-in verification</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/browserdetect.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script>
-function CheckBrowser(BrowserSupport)
-{
-	if(BrowserDetect.browser != 'Firefox' || BrowserDetect.browser != 'Chrome')
-	{
-		alert('You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
-			   + ' Your browser isn\'t supported, please download one of the recommended browsers below');
-	}
-}
-
-function CheckPlugin(ChceckGooglePlugin)
-{
-	if(google.earth.isInstalled())
-	{
-		alert('You have Google Earth Plugin installed');
-	}
-	else
-	{
-		alert(' !! You do not have Google Earth Plugin Installed. Please install now');
-		if(confirm("OK"))
-		{
-			document.location="http://www.google.com/earth/download/ge/agree.html";
-		}
-	}
-	
-}
 
 function OnLoad()
 {
-		$("#SupportBrowserPlugin").hide();
-		$("#UnSupportBrowserPlugin").hide();	
-		
+		$("#YbrowserYplugin").hide();
+		$("#NbrowserYplugin").hide();
+		$("#YbrowserNplugin").hide();
+		$("#NbrowserNplugin").hide();		
+
 		if(google.earth.isInstalled())
 		{
 			if(BrowserDetect.browser == 'Firefox')
 			{
-				$("#CheckBrowser").hide();
-				$("#SupportBrowserPlugin").show();
-				
+			$("#YbrowserYplugin").show();				
 			}
-			else if (BrowserDetect.browser=='Chrome')
+		
+			else if(BrowserDetect.browser == 'Chrome')
 			{
-				$("#CheckBrowser").hide();
-				$("#SupportBrowserPlugin").show();
+			$("#YbrowserYplugin").show();				
 			}
+			
 			else
 			{
-				alert(BrowserDetect.browser + ' is not compatible for Liquid Galaxy. \n PLease download and install recommended');
-				$("#CheckBrowser").hide();
-				$("#UnSupportBrowserPlugin").show();
+			$("#NbrowserYplugin").show();
 			}
+		}
+		else
+		{
+			if(BrowserDetect.browser != 'Firefox' || BrowserDetect.browser != 'Chrome')
+			{
+			$("#YbrowserNplugin").show();				
+			}
+		
+			else
+			{
+			$("#NbrowserNplugin").show();
+			}		
 		}
 }
 </script>
@@ -84,37 +70,46 @@ function OnLoad()
 
 <body onload="OnLoad()">
 <div id="Wrapper">
-	<div class="wrap">
-    	<div id="CheckBrowser">
-        	<h2>Check Your Browser Support</h2>
-            <p>This page will help you if you are using correct browser and the google plugin is installed.</p>
+     <div class="wrap">
+        <div id="YbrowserYplugin">
+	<h2>Congratulations</h2>
+	<p>Your browser is supported and the Google Earth Plug-in is installed</p>
+	<button type="submit" id="btnContinue" onclick="window.location.href='orientation.html';" >Next</button>
+	</div>
+
+        <div id="NbrowserYplugin">
+	<h2>Not supported</h2>
+	<p>Your browser isn't supported. Please download a recommended browser below:
+	<ul>
+	<li><a href="http://www.mozilla.org">Mozilla Firefox</a></li>
+	<li><a href="http://www.google.com/chrome">Google Chrome</a></li>
+	</ul>
+	</p>
         </div>
-        <div id="SupportBrowserPlugin">
-        	<h2>Congratulation !!</h2>
-            <p>You have Google Earth Plugin Installed and you are using Supporting Browser.</p>
-            <button type="submit" value="Continue" id="btnContinue" onclick="window.location.href='orientation.html';" >Next</button>
+
+        <div id="YbrowserNplugin">
+	<h2>No plug-in</h2>
+	<p>The Google Earth Plug-in is not installed. Please click the link to download the <a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a></p>
         </div>
-        <div id="UnSupportBrowserPlugin">
-        	<h2>Not Supporting Browser !!</h2>
-            <p>One of your browser or plugin is not compatible for Liquid Galaxy. Please see notes below.</p>
-            <input id="BrowserSupport" type="button" value="1. Check Browser" onclick="CheckBrowser(this.id)" />
-            <input id="CheckGooglePlugin" type="button" value="2. Check Plugin" onclick="CheckPlugin(this.id)" />
+
+        <div id="NbrowserNplugin">
+	<h2>Not supported and No plug-in</h2>
+		<p>Your browser isn't supported. Please download a recommended browser below:
+	<ul>
+	<li><a href="http://www.mozilla.org">Mozilla Firefox</a></li>
+	<li><a href="http://www.google.com/chrome">Google Chrome</a></li>
+	</ul>
+	
+	</br>
+	
+	The Google Earth Plug-in is not installed. Please click the link to download the <a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a>
+	</p>
         </div>
+
         <div id="GoogleEarthImage">
         	 <img src="images/googleEarth.png" />
         </div>
     </div>
-</div>
-<div id="Content" class="wrap">
-<ul>
-	<li>Please make sure your browser is either FireFox or Google Chrome<br /></li>
-    <li><br />Please make sure your browser is latest updated<br /></li>
-	<li>If your browser is not supported, please download recommended browsers.
-	<li><a href="#">Mozilla Firefox</a></li>
-    <li>||</li>
-    <li><a href="#">Google Chrome</a></li>
-    <li></li>
-</ul>
 </div>
 </body>
 </html>

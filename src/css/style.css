@@ -7,6 +7,29 @@ body
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+A:link
+{
+	text-decoration: none;
+	color: #FF8C00;
+}
+
+A:visited
+{
+	text-decoration: none;
+	color: #FF8C00;
+}
+A:active
+{
+	text-decoration: none;
+	color: #FF8C00;
+}
+
+A:hover
+{
+	text-decoration: none;
+	color: #F0F8FF;
+}
+
 #Wrapper
 {
 	min-width: 100%;
@@ -22,7 +45,7 @@ body
 	display: block;
 }
 
-.wrap #CheckBrowser, #SupportBrowserPlugin, #UnSupportBrowserPlugin
+.wrap #YbrowserYplugin, #YbrowserNplugin, #NbrowserYplugin, NbrowserNplugin
 {
 	display: inline-block;
     float: left;
