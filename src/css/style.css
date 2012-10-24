@@ -9,9 +9,10 @@ body
 
 #Wrapper
 {
+	min-width: 100%;
 	background-image:url(../images/top_Background.png);
 	min-height: 427px;
-	margin: 0px -15px;
+	float: left;
 }
 
 .wrap
@@ -21,17 +22,19 @@ body
 	display: block;
 }
 
-.wrap #CheckBrowser
+.wrap #CheckBrowser, #SupportBrowserPlugin, #UnSupportBrowserPlugin
 {
-	position: absolute;
-	top: 180px;
+	display: inline-block;
+    float: left;
+    margin-top: 230px;
+    width: 645px;
 }
 
 .wrap #GoogleEarthImage
 {
-	left: 1032px;
-    position: absolute;
-    top: 40px;
+	display: inline-block;
+    margin-top: 50px;
+    width: 320px;
 }
 
 h2
@@ -128,11 +131,6 @@ label
 	color: #7e40da;
 }
 
-#poslabel
-{
-	color: black;
-}
-
 #Screens
 {
 	text-align: center;
@@ -152,6 +150,7 @@ button
 	color: #FFF;
 	font-size: 16px;
 	cursor: pointer;
+	margin-top: 5px;
 }
 
 button:hover

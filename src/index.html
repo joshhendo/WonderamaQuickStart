@@ -2,48 +2,67 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Browser and Plug-in verification</title>
+<title>Browser Support Plugin</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/browserdetect.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-function CheckBrowser()
+<script type="text/javascript" src="js/jquery.js"></script>
+<script>
+function CheckBrowser(BrowserSupport)
 {
-	if(BrowserDetect.browser == 'Firefox')
+	if(BrowserDetect.browser != 'Firefox' || BrowserDetect.browser != 'Chrome')
 	{
-		
-		document.getElementById('browser').innerHTML = 'You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
-			  + '. Your browser is Supported.';
-
-	}
-	else if (BrowserDetect.browser=='Chrome')
-	{
-		document.getElementById('browser').innerHTML = 'You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
-			  + '. Your browser is Supported.';
-	}
-	else
-	{
-		document.getElementById('browser').innerHTML = 'You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
-			   + '. Your browser isn\'t supported, please download one of the recommended browsers below';
-		document.getElementById('unsupported').innerHTML = '<ul><li><a href="http://www.mozilla.org">Mozilla Firefox</a></li><li><a href="http://www.google.com/chrome">Google Chrome</a></li></ul>';
+		alert('You\'re using ' + BrowserDetect.browser + ' ' + BrowserDetect.version + ' on ' + BrowserDetect.OS
+			   + ' Your browser isn\'t supported, please download one of the recommended browsers below');
 	}
 }
 
-function CheckPlugin()
+function CheckPlugin(ChceckGooglePlugin)
 {
 	if(google.earth.isInstalled())
 	{
-		document.getElementById('plugin').innerHTML = 'You have Google Earth Plug-in installed';
+		alert('You have Google Earth Plugin installed');
 	}
 	else
 	{
-		document.getElementById('plugin').innerHTML = 'You do not have Google Earth Plug-in Installed. Please install now';
-		document.getElementById('noplugin').innerHTML = 'Please click the link to download the <a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a>';
+		alert(' !! You do not have Google Earth Plugin Installed. Please install now');
+		if(confirm("OK"))
+		{
+			document.location="http://www.google.com/earth/download/ge/agree.html";
+		}
 	}
 	
 }
+
+function OnLoad()
+{
+		$("#SupportBrowserPlugin").hide();
+		$("#UnSupportBrowserPlugin").hide();	
+		
+		if(google.earth.isInstalled())
+		{
+			if(BrowserDetect.browser == 'Firefox')
+			{
+				$("#CheckBrowser").hide();
+				$("#SupportBrowserPlugin").show();
+				
+			}
+			else if (BrowserDetect.browser=='Chrome')
+			{
+				$("#CheckBrowser").hide();
+				$("#SupportBrowserPlugin").show();
+			}
+			else
+			{
+				alert(BrowserDetect.browser + ' does not support for Liquid Galaxy. \n PLease download and install recommended');
+				$("#CheckBrowser").hide();
+				$("#UnSupportBrowserPlugin").show();
+			}
+		}
+}
 </script>
-   <script type="text/javascript">
+
+<script type="text/javascript">
     var ge;
     google.load("earth", "1");
 
@@ -63,24 +82,38 @@ function CheckPlugin()
   </script>
 </head>
 
-<body onLoad="CheckBrowser(); CheckPlugin();">
+<body onload="OnLoad()">
 <div id="Wrapper">
 	<div class="wrap">
     	<div id="CheckBrowser">
         	<h2>Check Your Browser Support</h2>
-            <p>You must have to check your browser before you go for next step. Click check browser below.</p>
-	<div id="browser"></div>
-	<div id="unsupported"></div>
-	<div id="plugin"></div>
-	<div id="noplugin"></div>
-            <input id="BrowserSupport" type="button" value="Orientation" onclick="window.location='orientation.html'" />
+            <p>This page will help you if you are using correct browser and the google plugin is installed.</p>
+        </div>
+        <div id="SupportBrowserPlugin">
+        	<h2>Congratulation !!</h2>
+            <p>You have Google Earth Plugin Installed and you are using Supporting Browser.</p>
+            <button type="submit" value="Continue" id="btnContinue" onclick="window.location.href='orientation.html';" >Next</button>
+        </div>
+        <div id="UnSupportBrowserPlugin">
+        	<h2>Not Supporting Browser !!</h2>
+            <input id="BrowserSupport" type="button" value="1. Check Browser" onclick="CheckBrowser(this.id)" />
+            <input id="CheckGooglePlugin" type="button" value="2. Check Plugin" onclick="CheckPlugin(this.id)" />
         </div>
         <div id="GoogleEarthImage">
-        	<img src="images/googleEarth.png" />
+        	 <img src="images/googleEarth.png" />
         </div>
     </div>
 </div>
-
-
+<div id="Content" class="wrap">
+<ul>
+	<li>Please make sure your browser is either FireFox or Google Chrome<br /></li>
+    <li><br />Please make sure your browser is latest updated<br /></li>
+	<li>If your browser is not supported, please download recommended browsers.
+	<li><a href="#">Mozilla Firefox</a></li>
+    <li>||</li>
+    <li><a href="#">Google Chrome</a></li>
+    <li></li>
+</ul>
+</div>
 </body>
 </html>
