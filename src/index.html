@@ -54,7 +54,7 @@ function OnLoad()
 			}
 			else
 			{
-				alert(BrowserDetect.browser + ' does not support for Liquid Galaxy. \n PLease download and install recommended');
+				alert(BrowserDetect.browser + ' is not compatible for Liquid Galaxy. \n PLease download and install recommended');
 				$("#CheckBrowser").hide();
 				$("#UnSupportBrowserPlugin").show();
 			}
@@ -96,6 +96,7 @@ function OnLoad()
         </div>
         <div id="UnSupportBrowserPlugin">
         	<h2>Not Supporting Browser !!</h2>
+            <p>One of your browser or plugin is not compatible for Liquid Galaxy. Please see notes below.</p>
             <input id="BrowserSupport" type="button" value="1. Check Browser" onclick="CheckBrowser(this.id)" />
             <input id="CheckGooglePlugin" type="button" value="2. Check Plugin" onclick="CheckPlugin(this.id)" />
         </div>
