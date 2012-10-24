@@ -2,107 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Browser and Plug-in verification</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/browserdetect.js"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script>
-
-function OnLoad()
-{
-		$("#YbrowserYplugin").hide();
-		$("#NbrowserYplugin").hide();
-		$("#YbrowserNplugin").hide();
-		$("#NbrowserNplugin").hide();		
-
-		if(google.earth.isInstalled())
-		{
-			if(BrowserDetect.browser == 'Firefox' || BrowserDetect.browser == 'Chrome')
-			{
-				$("#YbrowserYplugin").show();				
-			}
-			else
-			{
-				$("#NbrowserYplugin").show();
-			}
-		}
-		else
-		{
-			if(BrowserDetect.browser != 'Firefox' || BrowserDetect.browser != 'Chrome')
-			{
-				$("#YbrowserNplugin").show();				
-			}
-		
-			else
-			{
-				$("#NbrowserNplugin").show();
-			}		
-		}
-}
-</script>
-
-<script type="text/javascript">
-    var ge;
-    google.load("earth", "1");
-
-    function init() {
-      google.earth.createInstance('map3d', initCB, failureCB);
-    }
-
-    function initCB(instance) {
-      ge = instance;
-      ge.getWindow().setVisibility(true);
-    }
-
-    function failureCB(errorCode) {
-    }
-
-    google.setOnLoadCallback(init);
-  </script>
+<title>Orientation</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
-<body onload="OnLoad()">
-<div id="Wrapper">
-     <div class="wrap">
-        <div id="YbrowserYplugin">
-            <h2>Congratulations</h2>
-            <p>Your browser is supported and the Google Earth Plug-in is installed</p>
-            <button type="submit" id="btnContinue" onclick="window.location.href='orientation.html';" >Next</button>
-        </div>
-
-        <div id="NbrowserYplugin">
-            <h2>Not supported</h2>
-            <p>Your browser isn't supported. Please download a recommended browser below:
-            <ul>
-            <li><a href="http://www.mozilla.org">Mozilla Firefox</a></li>
-            <li><a href="http://www.google.com/chrome">Google Chrome</a></li>
-            </ul>
-        </div>
-
-        <div id="YbrowserNplugin">
-            <h2>No plug-in</h2>
-            <p>The Google Earth Plug-in is not installed. Please click the link to download the <a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a></p>
-        </div>
-
-        <div id="NbrowserNplugin">
-            <h2>Not supported and No plug-in</h2>
-            <p>Your browser isn't supported. Please download a recommended browser below:
-            <ul>
-            <li><a href="http://www.mozilla.org">Mozilla Firefox</a></li>
-            <li><a href="http://www.google.com/chrome">Google Chrome</a></li>
-            </ul>
-            
-            </br>
-            
-            The Google Earth Plug-in is not installed. Please click the link to download the <a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a>
-            </p>
-        </div>
-
-        <div id="GoogleEarthImage">
-        	 <img src="images/googleEarth.png" />
+<body>
+	<div class="wrap">
+    	<div style="display:block; width: 1024px; border:1px solid black">
+            <div style="display:inline-block">
+                <img src="images/arrow.svg">
+            </div>
+            <br />
+            <div style="display:inline-block">
+                <input type="button" value="Next" onclick="window.location='browser.html'" />
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>
