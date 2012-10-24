@@ -18,31 +18,25 @@ function OnLoad()
 
 		if(google.earth.isInstalled())
 		{
-			if(BrowserDetect.browser == 'Firefox')
+			if(BrowserDetect.browser == 'Firefox' || BrowserDetect.browser == 'Chrome')
 			{
-			$("#YbrowserYplugin").show();				
+				$("#YbrowserYplugin").show();				
 			}
-		
-			else if(BrowserDetect.browser == 'Chrome')
-			{
-			$("#YbrowserYplugin").show();				
-			}
-			
 			else
 			{
-			$("#NbrowserYplugin").show();
+				$("#NbrowserYplugin").show();
 			}
 		}
 		else
 		{
 			if(BrowserDetect.browser != 'Firefox' || BrowserDetect.browser != 'Chrome')
 			{
-			$("#YbrowserNplugin").show();				
+				$("#YbrowserNplugin").show();				
 			}
 		
 			else
 			{
-			$("#NbrowserNplugin").show();
+				$("#NbrowserNplugin").show();
 			}		
 		}
 }
@@ -72,38 +66,37 @@ function OnLoad()
 <div id="Wrapper">
      <div class="wrap">
         <div id="YbrowserYplugin">
-	<h2>Congratulations</h2>
-	<p>Your browser is supported and the Google Earth Plug-in is installed</p>
-	<button type="submit" id="btnContinue" onclick="window.location.href='orientation.html';" >Next</button>
-	</div>
+            <h2>Congratulations</h2>
+            <p>Your browser is supported and the Google Earth Plug-in is installed</p>
+            <button type="submit" id="btnContinue" onclick="window.location.href='orientation.html';" >Next</button>
+        </div>
 
         <div id="NbrowserYplugin">
-	<h2>Not supported</h2>
-	<p>Your browser isn't supported. Please download a recommended browser below:
-	<ul>
-	<li><a href="http://www.mozilla.org">Mozilla Firefox</a></li>
-	<li><a href="http://www.google.com/chrome">Google Chrome</a></li>
-	</ul>
-	</p>
+            <h2>Not supported</h2>
+            <p>Your browser isn't supported. Please download a recommended browser below:
+            <ul>
+            <li><a href="http://www.mozilla.org">Mozilla Firefox</a></li>
+            <li><a href="http://www.google.com/chrome">Google Chrome</a></li>
+            </ul>
         </div>
 
         <div id="YbrowserNplugin">
-	<h2>No plug-in</h2>
-	<p>The Google Earth Plug-in is not installed. Please click the link to download the <a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a></p>
+            <h2>No plug-in</h2>
+            <p>The Google Earth Plug-in is not installed. Please click the link to download the <a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a></p>
         </div>
 
         <div id="NbrowserNplugin">
-	<h2>Not supported and No plug-in</h2>
-		<p>Your browser isn't supported. Please download a recommended browser below:
-	<ul>
-	<li><a href="http://www.mozilla.org">Mozilla Firefox</a></li>
-	<li><a href="http://www.google.com/chrome">Google Chrome</a></li>
-	</ul>
-	
-	</br>
-	
-	The Google Earth Plug-in is not installed. Please click the link to download the <a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a>
-	</p>
+            <h2>Not supported and No plug-in</h2>
+            <p>Your browser isn't supported. Please download a recommended browser below:
+            <ul>
+            <li><a href="http://www.mozilla.org">Mozilla Firefox</a></li>
+            <li><a href="http://www.google.com/chrome">Google Chrome</a></li>
+            </ul>
+            
+            </br>
+            
+            The Google Earth Plug-in is not installed. Please click the link to download the <a href="http://www.google.com/earth/download/ge/agree.html">Google Earth Plug-in</a>
+            </p>
         </div>
 
         <div id="GoogleEarthImage">
