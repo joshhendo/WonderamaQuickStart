@@ -1,18 +1,50 @@
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>KML File Uploader</title>
+<meta charset="UTF-8" />
+<title>HTML5 File Drag &amp; Drop API</title>
+<link rel="stylesheet" type="text/css" media="all" href="css/upload.css" />
+<style type="text/css">
+</style>
 </head>
+<body style="background-color: #CCFFFF">
 
-<body>
-<h3>KML File Upload:</h3>
+<h1>HTML5 .KML FILE UPLOAD</h1>
 
-Select a KML file to upload: <br />
-<form action="upload_file.php" method="post"
-enctype="multipart/form-data">
-<input type="file" name="file" id="file" />
-<br />
-<input type="submit" name="submit" value="Upload File" />
+<p>&nbsp;</p>
+
+<p>Drag and drop or browse for the master ****.kml</p>
+<p>&nbsp;</p>
+
+
+<form id="upload" action="upload.php" method="POST" enctype="multipart/form-data">
+
+<fieldset>
+<legend>HTML File Upload</legend>
+
+<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+
+<div>
+	<label for="fileselect">Files to upload:</label>
+	<input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+	<div id="filedrag">or drop files here</div>
+</div>
+
+<div id="submitbutton">
+	<button type="submit">Upload Files</button>
+</div>
+
+</fieldset>
+
 </form>
 
+<div id="progress"></div>
+
+<div id="messages">
+<p>Status Messages</p>
+</div>
+
+
+<script src="js/filedrag.js"></script>
 </body>
 </html>
