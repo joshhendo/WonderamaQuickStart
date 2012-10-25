@@ -4,14 +4,47 @@
 <meta charset="utf-8">
 
 <title>File Upload!</title>
+<script type="text/javascript" src="js/cookies.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
 <script src="js/jquery.js"></script>
     <script src="js/jquery.form.js"></script>
 <script src="js/upload.js"></script>
 <link rel="stylesheet" type="text/css" href="css/upload.css" />
 
 
+<script>
+
+function OnLoad()
+{
+// Get the position from the cookies
+gPosition = Get_Cookie('position');
+
+	if (gPosition == 'M') //Master
+	{
+		$("#master").show();
+		$("#slave").hide();	
+	}	
+	else   //Slaves
+	{
+		$("#master").hide();
+		$("#slave").show();
+		$("#content").hide();
+	}
+}
+</script>
+
+
 </head>
-<body>
+<body onload="OnLoad()">
+
+<div id="master">
+			You are the master. Press ENTER to continue.
+</div>
+<div id="slave">
+			You are a slave. You will continue when the Master continues.
+</div>
+
+
 
 <div class="content">
 	<div id="drop-files" ondragover="return false">
@@ -48,6 +81,10 @@
 			<h1>Uploaded Files</h1>
 		</ul>
 	</div>
+</div>
+
+<div id="message">
+	Please upload your KML file on the master. This screen will continue when the master continues.
 </div>
 </body>
 </html>
