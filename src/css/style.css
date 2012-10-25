@@ -14,22 +14,22 @@ a
 
 NbrowserYplugin a:link
 {
-	color: #FF8C00;
+ 	color: #FF8C00;
 }
 
 NbrowserYplugin a:visited
 {
-	color: #FF8C00;
+ 	color: #FF8C00;
 }
 
 NbrowserYplugin a:active
 {
-	color: #FF8C00;
+ 	color: #FF8C00;
 }
 
 NbrowserYplugin a:hover
 {
-	color: #F0F8FF;
+ 	color: #F0F8FF;
 }
 
 #Wrapper
@@ -116,6 +116,11 @@ input[type=button]:hover
 #Content ul li a:hover
 {
 	color: #136bcd;
+}
+
+#poslabel
+{
+	color: #000000
 }
 
 /* ------- CHOOSE.HTML------------- */
