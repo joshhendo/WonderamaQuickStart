@@ -36,10 +36,12 @@
         	</p>
             <p>
               <input type="range" id="FOVSLIDER" min="15" max="90" value="25" onChange="changeFieldOfView()" />
+              <label for="fovvalue"></label>
+              <input type="text" name="FOVVALUE" id="FOVVALUE" size="2">
             </p>
             <p>
               <select name="texture" id="texture" onChange="changeTexture()"></select>
-            </p>
+      </p>
             <p>
               <input name="next" type="button" value="Next" onClick="continueToUpload()">
             </p>
@@ -494,20 +496,6 @@
 		
 		window.addEventListener( 'load', initialize, false );
 
-		function findAddress( address ) {
-		
-			showMessage( 'Getting coordinates...' );
-			geocoder.geocode( { 'address': address}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					map.setCenter(results[0].geometry.location);
-					showMessage( 'Address found.' );
-					addMarker( results[0].geometry.location ); // move to position (thanks @jocabola!)
-				} else {
-					showError("Geocode was not successful for the following reason: " + status);
-					showProgress( false );
-				}
-			});
-		}
 		
 		function showError( message ) {
 			//errorDiv.innerHTML = message;
@@ -589,6 +577,7 @@
 		
 		function updateFieldOfView(nfov)
 		{
+			document.getElementById("FOVVALUE").value = nfov;
 			nfov = Math.max( 15, Math.min( 90, nfov ) ); // limit 15 < fov < 90
 
 			// alert(nfov);
@@ -696,7 +685,9 @@
 					//if (nfov != fov)
 					if (true)
 					{
-						var rr = nfov / 33 * rot;
+						//var rr = nfov / 33 * rot;
+						//var rr = nfov * rot;
+						var rr = rot;
 						console.log("rot="+rot+",nfov="+nfov+",fov="+fov+",newrot="+rr);
 						rotateY = degToRad( rr );
 						fov = nfov;

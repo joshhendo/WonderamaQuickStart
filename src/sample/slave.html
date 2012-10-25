@@ -41,7 +41,7 @@
 			 	}
 			 	else
 			 	{
-			 		rotation = Get_Cookie('rot');
+			 		rotation = Get_Cookie('rot') * G_degreesToRad * -1;
 			 	}
 				
 				console.log("rotation="+rotation);
