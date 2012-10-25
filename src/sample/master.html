@@ -1,0 +1,82 @@
+
+<html>
+	<head>
+		<script type="text/javascript" src="http://www.google.com/jsapi"> </script>
+		<script type="text/javascript" src="math3d.js"></script>  
+
+<script>
+  var websocket  = 1;
+  var MASTER = 1;
+
+			var geCenter = null;
+			var latitude = 45.733375;
+			var longitude = 7.332367;
+			var heading = 0;
+			var tilt = 90;
+
+			google.load("earth", "1", {'other_params': 'sensor=false' });
+
+			function fix360(angle){
+				while (angle > 360) { angle -= 360 }
+				while (angle < 0) { angle += 360 }
+				return ( angle );
+			}
+
+			function init(){
+				google.earth.createInstance("earth_div", initCBCenter, failureCB);
+			};
+
+			function initCBCenter(object) {
+				geCenter = object;
+				geCenter.getWindow().setVisibility(true);
+				geCenter.getOptions().setStatusBarVisibility(false);
+				geCenter.getNavigationControl().setVisibility(geCenter.VISIBILITY_HIDE);
+				geCenter.getOptions().setFlyToSpeed(geCenter.SPEED_TELEPORT);
+				geCenter.getLayerRoot().enableLayerById(geCenter.LAYER_BUILDINGS, 1);
+				geCenter.getOptions().setMouseNavigationEnabled(1);
+				geCenter.getOptions().setAtmosphereVisibility(true);
+
+				//google.earth.addEventListener(geCenter, "frameend", handleViewChange);
+				//google.earth.addEventListener(geCenter.getWindow(), 'mouseup', handleMouseUp);
+				//google.earth.addEventListener(geCenter.getWindow(), 'mousedown', handleMouseDown);
+				//google.earth.addEventListener(geCenter.getWindow(), 'mousemove', handleMouseMove);
+				google.earth.addEventListener(geCenter.getView(), 'viewchange', handleViewChange);
+				//google.earth.addEventListener(geCenter.getView(), 'viewchangeend', handleViewChangeEnd);
+
+				var currentCam = geCenter.getView().copyAsCamera(geCenter.ALTITUDE_ABSOLUTE);
+				currentCam.set(latitude, longitude, 1000, geCenter.ALTITUDE_ABSOLUTE, heading, tilt, 0);
+				geCenter.getView().setAbstractView(currentCam);
+			};
+
+			function failureCB(object) {
+				alert('Install Google Earth plugin.');
+			};
+
+			function handleViewChange() {
+
+				var Cam = geCenter.getView().copyAsCamera(geCenter.ALTITUDE_ABSOLUTE);
+				var htr = [Cam.getHeading(), Cam.getTilt(), Cam.getRoll()];
+				var lla = [Cam.getLatitude(), Cam.getLongitude(), Cam.getAltitude()];	
+
+        htr[0] = fix360(360 - htr[0]);
+        htr[1] = 90 - htr[1];
+
+				webSocketSend("cam," +htr[0]+","+htr[1]+","+htr[2]+","+lla[0]+","+lla[1]+","+lla[2]);
+			}
+
+	</script>		
+<script type="text/javascript" src="websocket.js"></script>
+
+<style>
+  html, body, #earth_div {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+</style>
+</head>
+
+<body onload="init()">
+<div id="earth_div"></div>
+</body>
+</html>

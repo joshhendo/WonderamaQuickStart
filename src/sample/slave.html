@@ -1,0 +1,121 @@
+
+<html>
+	<head>
+		<script type="text/javascript" src="http://www.google.com/jsapi"> </script>
+		<script type="text/javascript" src="math3d.js"></script>  
+		<script type="text/javascript" src="../js/cookies.js"></script>
+
+		<script>
+      var websocket = 1;
+      var MASTER = 0;
+
+			var earth = null;
+			var latitude = 45.733375;
+			var longitude = 7.332367;
+			var heading = 0;
+			var tilt = 90;
+			var G_degreesToRad = Math.PI/180;
+
+			var FOVRad = 33 * G_degreesToRad;
+      		var rotation = 0;
+
+			google.load("earth", "1", {'other_params': 'sensor=false' });
+
+			function fix360(angle){
+				while (angle > 360) { angle -= 360 }
+				while (angle < 0) { angle += 360 }
+				return ( angle );
+			}
+
+			function init()
+			{
+			 	document.title = 'Google Earth Yaw Rotations';  
+				google.earth.createInstance("earth_div", initCBCenter, failureCB);
+
+        		var qryArgs = getQueryStringVars();
+        		var ROT = 0;
+				if (qryArgs["rot"])
+				{
+        			ROT = parseInt(qryArgs["rot"]);
+        			rotation = ROT * FOVRad;
+			 	}
+			 	else
+			 	{
+			 		rotation = Get_Cookie('rot');
+			 	}
+				
+				console.log("rotation="+rotation);
+			};
+
+
+			function initCBCenter(object) {
+				earth = object;
+				earth.getWindow().setVisibility(true);
+				earth.getOptions().setStatusBarVisibility(false);
+				earth.getNavigationControl().setVisibility(earth.VISIBILITY_HIDE);
+				earth.getOptions().setFlyToSpeed(earth.SPEED_TELEPORT);
+				earth.getLayerRoot().enableLayerById(earth.LAYER_BUILDINGS, 1);
+				earth.getOptions().setMouseNavigationEnabled(1);
+				earth.getOptions().setAtmosphereVisibility(true);
+
+				//google.earth.addEventListener(earth.getView(), 'viewchange', handleViewChange);
+
+				var currentCam = earth.getView().copyAsCamera(earth.ALTITUDE_ABSOLUTE);
+				currentCam.set(latitude, longitude, 1000, earth.ALTITUDE_ABSOLUTE, heading, tilt, 0);
+				earth.getView().setAbstractView(currentCam);
+			};
+
+			function failureCB(object) {
+				alert('Install Google Earth plugin.');
+			};
+
+function handleViewChange( mesg ) {
+
+  var args = mesg.split( "," );
+
+  //update the left and right earth
+	//var htr = [centerCam.getHeading(), centerCam.getTilt(), centerCam.getRoll()];
+	//var lla = [centerCam.getLatitude(), centerCam.getLongitude(), centerCam.getAltitude()];	
+	var htr = [ args[0], args[1], args[2] ]; // head tilt roll
+	var lla = [ parseFloat(args[3]), parseFloat(args[4]), parseFloat(args[5]) ]; // lat long alt
+
+  //console.log("htr[0]="+htr[0]+" htr[1]="+htr[1]+" htr[2]="+htr[2]);
+  //console.log("lla[0]="+lla[0]+" lla[1]="+lla[1]+" lla[2]="+lla[2]);
+	//var rotationRads = rotation * FOVRad;
+
+	var transform1 = M33.headingTiltRollToLocalOrientationMatrix( htr );				
+
+	// rotate transformation matrix around Z axis
+	transform1[0] = V3.rotate(transform1[0], transform1[2], rotation);
+	transform1[1] = V3.rotate(transform1[1], transform1[2], rotation);
+
+	// convert back to euler angles
+	var slaveHTR = M33.localOrientationMatrixToHeadingTiltRoll( transform1 );
+
+	//console.log("mastr hdg:"+htr[0]+ " mastr tilt:"+htr[1]+" mastr roll:"+htr[0]);
+	//console.log('slave hdg:'+slaveHTR[0] + ' slave tilt:' + fix360(90 - slaveHTR[1])+' slave roll:'+ -slaveHTR[2]);
+
+	var Cam = earth.getView().copyAsCamera(earth.ALTITUDE_ABSOLUTE);
+	// set camera lookat new orientation (lat,lng,alt, altmode, heading, tilt, roll)
+	Cam.set( lla[0], lla[1], lla[2], earth.ALTITUDE_ABSOLUTE, fix360(360 - slaveHTR[0]), fix360(90 - slaveHTR[1]), -slaveHTR[2]);
+	earth.getView().setAbstractView( Cam )
+
+	}
+
+</script>		
+
+<script type="text/javascript" src="websocket.js"></script>  
+	</head>
+
+<style>
+  html, body, #earth_div {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+</style>
+
+	<body onload="init()">
+		<div id="earth_div"></div>
+	</body>
+</html>
