@@ -406,6 +406,7 @@
 			var faces = 50;
 			mesh = new THREE.Mesh( new THREE.SphereGeometry( sphere_size, 60, 40 ), new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( CURRENTTEXTURE ) } ) );
 			mesh.doubleSided = true;
+			mesh.scale.x = -1;
 			scene.add( mesh );
 			
 			container.appendChild( renderer.domElement );
