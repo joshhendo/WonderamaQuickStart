@@ -65,6 +65,8 @@
 
 	<script type="text/javascript"> // Alf WebSocket stuff
 
+	var ZOOMFUDGE = 30 / 49;
+
 	function getQueryStringVars()
 	{
 		var server_variables = {};
@@ -87,6 +89,8 @@
 	var rot = 0;
 	var NEW_FRAME = false;
 	var CURRENTTEXTURE = textures[0][1];
+	var scene;
+	var mesh;
 	
 	var qryArgs = getQueryStringVars();
 	
@@ -255,7 +259,13 @@
 		CURRENTTEXTURE = elid.value;
 		
 		// reinitialise
-		initialize();
+		//initialize();
+
+		scene.remove(mesh);
+		mesh = new THREE.Mesh( new THREE.SphereGeometry( sphere_size-10, 60, 40 ), new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( CURRENTTEXTURE ) } ) );
+		mesh.doubleSided = true;
+		mesh.scale.x = -1;
+		scene.add( mesh );
 	}
 	
 	// Continue to uploader
@@ -293,7 +303,7 @@
 		var sphere_size = 500;
 		var map, canvas, ctx;
 		var marker = null;
-		var container, mesh, renderer, camera, masterCamera;
+		var container, renderer, camera, masterCamera;
 		//var lat = 0, lon = 0;
 		var zoom;
 		var geocoder;
@@ -577,11 +587,11 @@
 		
 		function updateFieldOfView(nfov)
 		{
-			document.getElementById("FOVVALUE").value = nfov;
+			document.getElementById("FOVVALUE").value = nfov * ZOOMFUDGE ;
 			nfov = Math.max( 15, Math.min( 90, nfov ) ); // limit 15 < fov < 90
 
 			// alert(nfov);
-			Set_Cookie( 'nfov', nfov, 30, '/', '', '' );
+			Set_Cookie( 'nfov', nfov * ZOOMFUDGE, 30, '/', '', '' );
 
 
 			var tween = new TWEEN

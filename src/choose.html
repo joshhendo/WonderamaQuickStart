@@ -14,6 +14,7 @@
 		
 		// Set some global variables
 		var gPosition = '';
+		var continued = false;
 		
 		// Some WebSocket stuff
 		var relaySocket  = new WebSocket(confWebSocketServer);
@@ -94,7 +95,12 @@
 		{
 			if (where == "viewer")
 			{
-				window.location = "viewer.html";	
+				continued = true;
+
+				if (isReadyToContinue())
+				{
+					window.location = "viewer.html";	
+				}
 			}
 		}
 		
@@ -134,8 +140,20 @@
 			}
 		}
 
+		function isReadyToContinue()
+		{
+			if (Get_Cookie('position') == '' || Get_Cookie('position') == 'null')
+			{
+				return false;
+			}
+			
+			return true;
+		}
+
 		function setComputer(position)
 		{
+			// TODO: Implement "continued" variable to automatically go to viewer if it is set.
+
 			// Change image to ungreyed image
 			OnStart();
 			document['IMG' + position].src = "images/monitor_" + position + ".png";
