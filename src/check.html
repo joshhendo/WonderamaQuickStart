@@ -1,9 +1,9 @@
-<!-- This page is to check if configuration already exists -->
-
-<html>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
 	<title>Check Previous Configuration</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
     
 	<script type="text/javascript" src="js/cookies.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
@@ -13,7 +13,7 @@
 	function OnStart()
 	{
 		document.getElementById('check').style.display = '';
-		document.getElementById('exist').style.display = 'none';
+		//document.getElementById('exist').style.display = 'none';
 		
 		if (Check() == true)
 		{
@@ -26,7 +26,7 @@
 			// e.g. position isn't set, but rotation is.
 			ClearConfig();
 			
-			window.location = "choose.html";
+			//window.location = "choose.html";
 		}
 	}
 	
@@ -96,27 +96,29 @@
 
 <body onLoad="OnStart(); LoadPosition();">
 
-<div id="check">
-	<p>Checking for existing configuration.</p>
+<div id="Wrapper1">
+	<div class="wrap">
+    	<h1>Configuration</h1>
+    </div>
 </div>
-
-<div id="exist">
-    <p>Existing configuraton was detected. The settings are:</p>
-    <p>Position <div id="current_position"></div></p>
-    <p>Rotation <div id="current_rot"></div></p>
-    <p>What do you want to do? Except in special circumstances, you should select the same option on every computer.</p>
-    <p>
-      <input type="button" name="straight" id="straight" value="Go Straight to Google Earth" onClick="GoToEarth()"/>
-    </p>
-    <p>If your computers are setup in the exact same configuration as they were last time, including the positions, then you can jump straight to Google Earth using the current configuration.</p>
-    <p>
-      <input type="button" name="alter" id="alter" value="Alter existing configuration" onClick="GoToViewer()"/>
-    </p>
-    <p>If your computers are setup in a similar configuration as they were last time, but may need small adjustments, then you can use the existing configuration as the defaults for the editor. This will direct you straight to the viewer allowing you to change the field of view and rotation.</p>
-    <p>
-      <input type="button" name="clear" id="clear" value="Clear existing configuration" onClick="ClearAll()"/>
-    </p>
-    <p>If your computers are in a different configuraiton as they were lsat time, select this option. The configuration utility will clear all existing configuration and run from scratch.</p>
+<div class="wrap">
+	<div id="check">
+		<p>Checking for existing configuration.</p>
+	</div>
+    <ul>
+    	<li>Existing configuraton was detected. The settings are:</li>
+        <li>
+        	<ul class="configPositionRotation">
+            	<li>Position : <span id="current_position">Master</span></li>
+                <li>Rotation : <span id="current_rot">9999</span></li>
+            </ul>
+        </li>
+        <li class="questionBackground">What do you want to do? Except in special circumstances, you should select the same option on every computer.</li>
+        <li class="answerBackground"> <a href="#">Go Straight to Google Earth ||</a></li>
+        <li class="questionBackground"> If your computers are setup in the exact same configuration as they were last time, including the positions, then you can jump straight to Google Earth using the current configuration.</li>
+        <li class="answerBackground"> <a href="#">Clear Existing Configuration ||</a></li>
+        <li class="questionBackground">If your computers are in a different configuraiton as they were lsat time, select this option. The configuration utility will clear all existing configuration and run from scratch.</li>
+    </ul>
 </div>
 </body>
 

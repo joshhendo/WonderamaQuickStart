@@ -7,26 +7,27 @@ body
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-A:link
+a
 {
 	text-decoration: none;
+}
+
+NbrowserYplugin a:link
+{
 	color: #FF8C00;
 }
 
-A:visited
+NbrowserYplugin a:visited
 {
-	text-decoration: none;
 	color: #FF8C00;
 }
-A:active
+NbrowserYplugin a:active
 {
-	text-decoration: none;
 	color: #FF8C00;
 }
 
-A:hover
+NbrowserYplugin a:hover
 {
-	text-decoration: none;
 	color: #F0F8FF;
 }
 
@@ -108,8 +109,7 @@ input[type=button]:hover
 
 #Content ul li a
 {
-	text-decoration: none;
-	color: #cd7813;
+	/* color: #cd7813; */
 }
 
 #Content ul li a:hover
@@ -192,7 +192,55 @@ button:hover
 	display: inline-block;	
 }
 
-.wrap ul li
+.wrap ul
 {
-	padding-bottom: 10px;
+	list-style: none;
+}
+
+/* ------- CHECK.HTML -------------*/
+
+.configPositionRotation li
+{
+	background-color: #156ccd;
+	border:1px solid #c4c4c4;
+	width: 200px;
+	padding: 10px;
+	color: #FFF;
+	margin: 5px;
+	
+}
+
+#current_position, #current_rot
+{
+	width: 60px;
+	display:inline-block;
+	background-color: #FFF;
+	text-align: right;
+	border:1px solid #e6e6e6;
+	margin-left: 60px;
+	text-transform: uppercase;
+	color: #000;
+}
+
+.questionBackground
+{
+	background-color: #0f9bdc;
+	padding: 10px;
+	color: #FFF;
+}
+
+.answerBackground
+{
+	background-color: #9cd0e8;
+	padding: 20px;
+}
+
+.answerBackground a
+{
+	color: #007194;	
+}
+
+.answerBackground a:hover
+{
+	color: #1295e0;
 }
