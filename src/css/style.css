@@ -21,6 +21,7 @@ NbrowserYplugin a:visited
 {
 	color: #FF8C00;
 }
+
 NbrowserYplugin a:active
 {
 	color: #FF8C00;
@@ -203,7 +204,7 @@ button:hover
 {
 	background-color: #156ccd;
 	border:1px solid #c4c4c4;
-	width: 200px;
+	width: 215px;
 	padding: 10px;
 	color: #FFF;
 	margin: 5px;
@@ -212,10 +213,10 @@ button:hover
 
 #current_position, #current_rot
 {
-	width: 60px;
+	width: 80px;
 	display:inline-block;
 	background-color: #FFF;
-	text-align: right;
+	text-align: center;
 	border:1px solid #e6e6e6;
 	margin-left: 60px;
 	text-transform: uppercase;
