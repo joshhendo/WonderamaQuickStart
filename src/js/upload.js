@@ -27,7 +27,7 @@ $(document).ready(function() {
 		$.each(files, function(index, file) {
 						
 			// Some error messaging
-			if (!files[index].type.match('kml.*')) {
+			if (!files[index].name.match('\.kml')) {
 				
 				if(errMessage == 0) {
 					$('#drop-files').html('Hey! KML only');
