@@ -40,7 +40,7 @@
               <input type="text" name="FOVVALUE" id="FOVVALUE" size="2">
             </p>
             <p>
-              <select name="texture" id="texture" onChange="changeTexture()"></select>
+              <select name="texture" id="texture" onChange="textureChanged()"></select>
       </p>
             <p>
               <input name="next" type="button" value="Next" onClick="continueToUpload()">
@@ -167,6 +167,11 @@
 					GoTo(message[1]);	
 				}
 				
+				if (message[0] == "texture")
+				{
+					changeTexture(message[1]);	
+				}
+				
 				
 			}
 		}
@@ -250,17 +255,25 @@
 		selectbox.options.add(optn);
 	}
 	
-	function changeTexture()
+	// Bound to the changing of the drop down menu;
+	function textureChanged()
 	{
 		// Find out what texture is selected
 		elid = document.getElementById('texture');
-		alert(elid.value);
 		
-		CURRENTTEXTURE = elid.value;
+		//CURRENTTEXTURE = elid.value;
 		
 		// reinitialise
 		//initialize();
 
+		changeTexture(elid.value);
+		doSend('texture#' + elid.value);
+	}
+	
+	function changeTexture(filename)
+	{
+		CURRENTTEXTURE = filename;
+		
 		scene.remove(mesh);
 		mesh = new THREE.Mesh( new THREE.SphereGeometry( sphere_size-10, 60, 40 ), new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( CURRENTTEXTURE ) } ) );
 		mesh.doubleSided = true;
