@@ -27,22 +27,22 @@ $(document).ready(function() {
 		$.each(files, function(index, file) {
 						
 			// Some error messaging
-			if (!files[index].name.match('\.kml')) {
+			if (!files[index].name.match('\.kml') && !files[index].name.match('\.kmz')) {
 				
 				if(errMessage == 0) {
-					$('#drop-files').html('Hey! KML only');
+					$('#drop-files').html('KML or KMZ files only');
 					++errMessage
 				}
 				else if(errMessage == 1) {
-					$('#drop-files').html('Stop it! KML only!');
+					$('#drop-files').html('KML/KMZ files only');
 					++errMessage
 				}
 				else if(errMessage == 2) {
-					$('#drop-files').html("Can't you read?! KML only!");
+					$('#drop-files').html("KML or KMZ files only!");
 					++errMessage
 				}
 				else if(errMessage == 3) {
-					$('#drop-files').html("Fine! Keep dropping non-images.");
+					$('#drop-files').html("KML/KMZ files only!");
 					errMessage = 0;
 				}
 				return false;
