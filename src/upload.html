@@ -2,20 +2,58 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>KML FILE UPLOADER</title>
+        <title>File Uploader</title>
+        <!-- Including The jQuery Library -->
+		<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+		
+		<!-- Including the HTML5 Uploader plugin -->
+		<script src="js/jquery.filedrop.js"></script>
+		
+		<!-- The main script file -->
+        <script src="js/script.js"></script>
+		<script type="text/javascript" src="js/cookies.js"></script>
+
         
         <!-- Our CSS stylesheet file -->
         <link rel="stylesheet" href="css/styles.css" />
      	<link href="css/style.css" rel="stylesheet" type="text/css" />
-        
+    
+
+	<script>
+	
+	function OnLoad()
+	{
+	// Get the position from the cookies
+	gPosition = Get_Cookie('position');
+	
+	if (gPosition == 'M') //Master
+	{
+		$("#master").show();
+		$("#slave").hide();
+	}	
+	else   //Slaves
+	{
+		$("#master").hide();
+		$("#slave").show();
+		$("#dropbox").hide();
+		$("#Content").hide();
+	}
+	}
+	</script>
+    
     </head>
     
-    <body>
+    <body onload="OnLoad()">
+	
 		<div id="Wrapper">
             <div class="wrap">
-            	<h3>Please Upload your KML or KMZ file on the master. This screen will continute when the master continues.</h3>
-                <p>You are slave. You will continute when master continues.</p>
-            <div id="dropbox">
+            		<div id="master">
+						<h3>You are the master. Please Upload your KML or KMZ file.</h3>
+					</div>
+					<div id="slave">
+						<h3>You are a slave. Please Upload your KML or KMZ file on the master. This screen will continue when the master continues.</h3>
+					</div>
+             <div id="dropbox">
             	<span class="message">                    
            			Drop your KML here.
             		<br>
@@ -32,14 +70,7 @@
              </ul>
 		</div>
         
-        <!-- Including The jQuery Library -->
-		<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-		
-		<!-- Including the HTML5 Uploader plugin -->
-		<script src="js/jquery.filedrop.js"></script>
-		
-		<!-- The main script file -->
-        <script src="js/script.js"></script>
+
     
     </body>
 </html>
