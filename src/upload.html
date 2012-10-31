@@ -1,94 +1,46 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-
-<title>File Upload!</title>
-<script type="text/javascript" src="js/cookies.js"></script>
-<script type="text/javascript" src="js/config.js"></script>
-<script src="js/jquery.js"></script>
-    <script src="js/jquery.form.js"></script>
-<script src="js/upload.js"></script>
-<link rel="stylesheet" type="text/css" href="css/upload.css" />
-
-
-<script>
-
-function OnLoad()
-{
-// Get the position from the cookies
-gPosition = Get_Cookie('position');
-
-	if (gPosition == 'M') //Master
-	{
-		$("#master").show();
-		$("#slave").hide();	
-	}	
-	else   //Slaves
-	{
-		$("#master").hide();
-		$("#slave").show();
-		$("#content").hide();
-	}
-}
-</script>
-
-
-</head>
-<body onload="OnLoad()">
-
-<div id="master">
-			You are the master. Press ENTER to continue.
-</div>
-<div id="slave">
-			You are a slave. You will continue when the Master continues.
-</div>
-
-
-
-<div class="content">
-	<div id="drop-files" ondragover="return false">
-		Drag and Drop file here
-	</div>
-	
-	<div id="uploaded-holder">
-		<div id="dropped-files">
-			<div id="upload-button">
-				<a href="#" class="upload">Upload!</a>
-				<a href="#" class="delete">delete</a>
-				<span>0 Files</span>
-			</div>
+    <head>
+        <meta charset="utf-8" />
+        <title>KML FILE UPLOADER</title>
+        
+        <!-- Our CSS stylesheet file -->
+        <link rel="stylesheet" href="css/styles.css" />
+     	<link href="css/style.css" rel="stylesheet" type="text/css" />
+        
+    </head>
+    
+    <body>
+		<div id="Wrapper">
+            <div class="wrap">
+            	<h3>Please Upload your KML or KMZ file on the master. This screen will continute when the master continues.</h3>
+                <p>You are slave. You will continute when master continues.</p>
+            <div id="dropbox">
+            	<span class="message">                    
+           			Drop your KML here.
+            		<br>
+            		<i>(they will only be visible to you)</i>
+           		</span>
+            </div>    <!-- dropbox close -->
+            </div>   <!-- Wrap Close -->
 		</div>
-		<div id="extra-files">
-			<div class="number">
-				0
-			</div>
-			<div id="file-list">
-				<ul></ul>
-			</div>
+        <div id="Content" class="wrap">
+        	<ul>
+            	<li>Note: Uploader page is design to upload KML and KMZ file that will be use as texture in Google Esarth.</li>
+                <li></li>
+                <li> If you do not have file to upload. <a href="#" ><strong>Click Here</strong> </a> to skip.</li>
+             </ul>
 		</div>
-	</div>
-	
-	<div id="loading">
-		<div id="loading-bar">
-			<div class="loading-color"> </div>
-		</div>
-		<div id="loading-content">Uploading file.jpg</div>
-	</div>
-	
-	<div id="file-name-holder">
-		<ul id="uploaded-files">
-			<h1>Uploaded Files</h1>
-		</ul>
-	</div>
-</div>
-
-
-<div id="message">
-	<p>Please upload your KML or KMZ file on the master. This screen will continue when the master continues.</p>
-
-	<p>If you have no file to upload you may skip this page</p>
-	<button type="submit" id="btnContinue" onclick="window.location.href='final.html';" >Next</button>
-</div>
-</body>
+        
+        <!-- Including The jQuery Library -->
+		<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+		
+		<!-- Including the HTML5 Uploader plugin -->
+		<script src="js/jquery.filedrop.js"></script>
+		
+		<!-- The main script file -->
+        <script src="js/script.js"></script>
+    
+    </body>
 </html>
+

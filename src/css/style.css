@@ -106,6 +106,8 @@ input[type=button]:hover
 	list-style: none;
 	display: inline-block;
 	margin-left: 10px;
+	text-align: center;
+	width: 100%;
 }
 
 #Content ul li a
@@ -130,6 +132,7 @@ input[type=button]:hover
 	background: url(../images/top_Background_1.png);
     min-height: 156px;
 	margin: 0px -15px;
+	border:1px solid white;
 }
 
 .title
