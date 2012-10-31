@@ -1,34 +1,281 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1"
-	 id="svg2" sodipodi:docname="arrow.svg" inkscape:version="0.48.2 r9819" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="546.08px"
-	 height="622.567px" viewBox="0 0 546.08 622.567" enable-background="new 0 0 546.08 622.567" xml:space="preserve">
-<sodipodi:namedview  id="base" fit-margin-bottom="0" fit-margin-right="0" inkscape:window-y="-8" inkscape:window-x="-8" inkscape:window-height="716" inkscape:window-width="1366" inkscape:current-layer="layer1" inkscape:document-units="px" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:window-maximized="1" inkscape:cy="440.74377" fit-margin-left="0" inkscape:cx="400.58996" fit-margin-top="0" inkscape:zoom="1.1993206" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" showgrid="false">
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="arrow.svg"
+   inkscape:version="0.48.2 r9819"
+   x="0px"
+   y="0px"
+   width="576.58685"
+   height="638.19501"
+   viewBox="0 0 576.58684 638.19499"
+   enable-background="new 0 0 546.08 622.567"
+   xml:space="preserve"><metadata
+   id="metadata3085"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+   id="defs3083" />
+<sodipodi:namedview
+   id="base"
+   fit-margin-bottom="2.5"
+   fit-margin-right="15.5"
+   inkscape:window-y="-8"
+   inkscape:window-x="-8"
+   inkscape:window-height="706"
+   inkscape:window-width="1024"
+   inkscape:current-layer="layer1"
+   inkscape:document-units="px"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:window-maximized="1"
+   inkscape:cy="311.51078"
+   fit-margin-left="15.5"
+   inkscape:cx="288.29388"
+   fit-margin-top="15.4"
+   inkscape:zoom="0.81758266"
+   borderopacity="1.0"
+   bordercolor="#666666"
+   pagecolor="#ffffff"
+   showgrid="false">
 	</sodipodi:namedview>
-<g id="layer1" transform="translate(-111.14609,-49.466446)" inkscape:label="Layer 1" inkscape:groupmode="layer">
-	<text transform="matrix(1 0 0 1 206.9806 63.1417)" font-family="'Verdana'" font-size="18">Your screen is the correct orientation.</text>
-	<text transform="matrix(1 0 0 1 263.6085 85.6417)" font-family="'Verdana'" font-size="18">Press </text>
-	<text transform="matrix(1 0 0 1 317.9513 85.6417)" font-family="'Verdana-Bold'" font-size="18">ENTER</text>
-	<text transform="matrix(1 0 0 1 384.1329 85.6417)" font-family="'Verdana'" font-size="18"> to continue</text>
-	<text transform="matrix(0 1 -1 0 643.8658 185.3683)" font-family="'Verdana'" font-size="18">Press </text>
-	<text transform="matrix(0 1 -1 0 643.8658 239.7111)" font-family="'Verdana-Bold'" font-size="18">CTRL - ALT - RIGHT ARROW</text>
-	<text transform="matrix(0 1 -1 0 643.8658 519.9064)" font-family="'Verdana'" font-size="18"> to</text>
-	<text transform="matrix(0 1 -1 0 621.3658 225.0509)" font-family="'Verdana'" font-size="18">correct your screen orientation</text>
-	<text transform="matrix(0 1 -1 0 598.8658 237.048)" font-family="'Verdana'" font-size="18">Arrow should be pointing up</text>
-	<text transform="matrix(0 -1 1 0 124.5055 541.7697)" font-family="'Verdana'" font-size="18">Press </text>
-	<text transform="matrix(0 -1 1 0 124.5055 487.4259)" font-family="'Verdana-Bold'" font-size="18">CTRL - ALT - LEFT ARROW</text>
-	<text transform="matrix(0 -1 1 0 124.5055 225.3361)" font-family="'Verdana'" font-size="18"> to</text>
-	<text transform="matrix(0 -1 1 0 147.0055 511.1388)" font-family="'Verdana'" font-size="18">correct your screen orientation</text>
-	<text transform="matrix(0 -1 1 0 169.5055 499.1427)" font-family="'Verdana'" font-size="18">Arrow should be pointing up</text>
-	<text transform="matrix(-1 0 0 -1 554.2047 658.674)" font-family="'Verdana'" font-size="18">Press </text>
-	<text transform="matrix(-1 0 0 -1 499.8619 658.674)" font-family="'Verdana-Bold'" font-size="18">CTRL - ALT - DOWN ARROW</text>
-	<text transform="matrix(-1 0 0 -1 219.7193 658.674)" font-family="'Verdana'" font-size="18"> to</text>
-	<text transform="matrix(-1 0 0 -1 514.5485 636.174)" font-family="'Verdana'" font-size="18">correct your screen orientation</text>
-	<text transform="matrix(-1 0 0 -1 502.5514 613.674)" font-family="'Verdana'" font-size="18">Arrow should be pointing up</text>
+<g
+   id="layer1"
+   transform="translate(-95.892219,-34.065921)"
+   inkscape:label="Layer 1"
+   inkscape:groupmode="layer"
+   style="display:inline">
+	
+	
+	
+	<text
+   style="font-size:18px;line-height:125%;fill:#00af00;fill-opacity:1;font-family:Verdana"
+   font-size="18"
+   id="text3039"
+   x="206.98061"
+   y="63.141701"
+   sodipodi:linespacing="125%"><tspan
+   style="font-size:18px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#00af00;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana Bold"
+   id="tspan3097">Your screen is the correct orientation</tspan>.</text>
+
+
+
+<text
+   style="font-size:18px;fill:#00af00;fill-opacity:1;font-family:Verdana"
+   font-size="18"
+   id="text3041"
+   x="273.35773"
+   y="88.07901">Press </text>
+
+
+
+<text
+   style="font-size:18px;fill:#00af00;fill-opacity:1;font-family:Verdana-Bold"
+   font-size="18"
+   id="text3043"
+   x="330.91919"
+   y="88.07901">Next</text>
+
+
+
+<text
+   style="font-size:18px;fill:#00af00;fill-opacity:1;font-family:Verdana"
+   font-size="18"
+   id="text3045"
+   x="372.82098"
+   y="88.860352"> to continue</text>
+
+
+
+
+	<text
+   transform="matrix(0,1,-1,0,643.8658,185.3683)"
+   font-size="18"
+   id="text3047"
+   style="font-size:18px;font-family:Verdana">Press </text>
+
+
+
+
+	<text
+   transform="matrix(0,1,-1,0,643.8658,239.7111)"
+   font-size="18"
+   id="text3049"
+   style="font-size:18px;fill:#ff0000;font-family:Verdana-Bold">CTRL - ALT - RIGHT ARROW</text>
+
+
+
+
+	<text
+   transform="matrix(0,1,-1,0,643.8658,519.9064)"
+   font-size="18"
+   id="text3051"
+   style="font-size:18px;font-family:Verdana"> to</text>
+
+
+
+
+	<text
+   transform="matrix(0,1,-1,0,621.3658,225.0509)"
+   font-size="18"
+   id="text3053"
+   style="font-size:18px;font-family:Verdana">correct your screen orientation</text>
+
+
+
+
+	<text
+   transform="matrix(0,1,-1,0,598.8658,237.048)"
+   font-size="18"
+   id="text3055"
+   style="font-size:18px;font-family:Verdana">Arrow should be pointing up</text>
+
+
+
+
+	<text
+   transform="matrix(0,-1,1,0,124.5055,541.7697)"
+   font-size="18"
+   id="text3057"
+   style="font-size:18px;font-family:Verdana">Press </text>
+
+
+
+
+	<text
+   transform="matrix(0,-1,1,0,124.5055,487.4259)"
+   font-size="18"
+   id="text3059"
+   style="font-size:18px;fill:#ff0000;font-family:Verdana-Bold">CTRL - ALT - LEFT ARROW</text>
+
+
+
+
+	<text
+   transform="matrix(0,-1,1,0,124.5055,225.3361)"
+   font-size="18"
+   id="text3061"
+   style="font-size:18px;font-family:Verdana"> to</text>
+
+
+
+
+	<text
+   transform="matrix(0,-1,1,0,147.0055,511.1388)"
+   font-size="18"
+   id="text3063"
+   style="font-size:18px;font-family:Verdana">correct your screen orientation</text>
+
+
+
+
+	<text
+   transform="matrix(0,-1,1,0,169.5055,499.1427)"
+   font-size="18"
+   id="text3065"
+   style="font-size:18px;font-family:Verdana">Arrow should be pointing up</text>
+
+
+
+
+	<text
+   transform="scale(-1,-1)"
+   font-size="18"
+   id="text3067"
+   x="-554.20471"
+   y="-656.67401"
+   style="font-size:18px;font-family:Verdana">Press </text>
+
+
+
+
+	<text
+   transform="scale(-1,-1)"
+   font-size="18"
+   id="text3069"
+   x="-499.86191"
+   y="-655.84021"
+   style="font-size:18px;fill:#ff0000;font-family:Verdana-Bold">CTRL - ALT - DOWN ARROW</text>
+
+
+
+
+	<text
+   transform="scale(-1,-1)"
+   font-size="18"
+   id="text3071"
+   x="-233.7193"
+   y="-656.67401"
+   style="font-size:18px;font-family:Verdana"> to</text>
+
+
+
+
+	<text
+   transform="matrix(-1,0,0,-1,514.5485,636.174)"
+   font-size="18"
+   id="text3073"
+   style="font-size:18px;font-family:Verdana">correct your screen orientation</text>
+
+
+
+
+	<text
+   transform="matrix(-1,0,0,-1,502.5514,613.674)"
+   font-size="18"
+   id="text3075"
+   style="font-size:18px;font-family:Verdana">Arrow should be pointing up</text>
+
+
+
+
+<text
+   xml:space="preserve"
+   style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+   x="228.46268"
+   y="84.762527"
+   id="text3103"
+   sodipodi:linespacing="125%"
+   transform="translate(111.14609,49.466446)"><tspan
+     sodipodi:role="line"
+     id="tspan3105"
+     x="228.46268"
+     y="84.762527" /></text>
+
+
+
 </g>
-<line fill="none" stroke="#000000" stroke-width="5.6499" stroke-linecap="round" stroke-linejoin="round" x1="272.987" y1="104.784" x2="272.987" y2="492.303"/>
-<line fill="none" stroke="#000000" stroke-width="5.6499" stroke-linecap="round" stroke-linejoin="round" x1="273.147" y1="104.785" x2="182.948" y2="340.784"/>
-<line fill="none" stroke="#000000" stroke-width="5.6499" stroke-linecap="round" stroke-linejoin="round" x1="272.825" y1="104.784" x2="363.025" y2="340.784"/>
-</svg>
+<line
+   x1="288.24088"
+   y1="142.5071"
+   x2="288.24088"
+   y2="510.76837"
+   id="line3077"
+   style="fill:#ff0000;stroke:#000000;stroke-width:5.50772524;stroke-linecap:round;stroke-linejoin:round" />
+<line
+   x1="288.52332"
+   y1="140.90843"
+   x2="198.07942"
+   y2="356.30722"
+   id="line3079"
+   style="fill:#ff0000;stroke:#000000;stroke-width:5.40500402;stroke-linecap:round;stroke-linejoin:round" />
+<line
+   x1="288.3764"
+   y1="142.93092"
+   x2="377.21164"
+   y2="357.55484"
+   id="line3081"
+   style="fill:#ff0000;stroke:#000000;stroke-width:5.34703732;stroke-linecap:round;stroke-linejoin:round" />
+<path
+   style="fill:#ff0000"
+   d=""
+   id="path3099"
+   inkscape:connector-curvature="0" /></svg>
