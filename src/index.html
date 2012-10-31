@@ -2,21 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Orientation</title>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<title>Welcome</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-	<div class="wrap">
-    	<div style="display:block; width: 1024px; border:1px solid black">
-            <div style="display:inline-block">
-                <img src="images/arrow.svg">
-            </div>
-            <br />
-            <div style="display:inline-block">
-                <input type="button" value="Next" onclick="window.location='browser.html'" />
-            </div>
-        </div>
+<div id="Wrapper">
+     <div class="wrap">
+        <div id="Title">
+            <h2>Welcome to the Quickstart Liquid Galaxy Setup</h2>
+			<button type="submit" id="btnContinue" onclick="window.location.href='orientation.html';" >Next</button>
+		</div>
+		<div id="GoogleEarthImage">
+				<img src="images/googleEarth.png" />
+		</div>
     </div>
+</div>
+<div id="Content" class="wrap">
+	<ul>
+		<li style="padding-left: 400px">Hit F11 to Fullscreen</li>
+	</ul>
+</div>
 </body>
 </html>

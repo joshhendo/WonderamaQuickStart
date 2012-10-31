@@ -12,22 +12,22 @@ a
 	text-decoration: none;
 }
 
-NbrowserYplugin a:link
+#NbrowserYplugin a:link
 {
  	color: #FF8C00;
 }
 
-NbrowserYplugin a:visited
+#NbrowserYplugin a:visited
 {
  	color: #FF8C00;
 }
 
-NbrowserYplugin a:active
+#NbrowserYplugin a:active
 {
  	color: #FF8C00;
 }
 
-NbrowserYplugin a:hover
+#NbrowserYplugin a:hover
 {
  	color: #F0F8FF;
 }
@@ -47,7 +47,7 @@ NbrowserYplugin a:hover
 	display: block;
 }
 
-.wrap #YbrowserYplugin, #YbrowserNplugin, #NbrowserYplugin, NbrowserNplugin
+.wrap #YbrowserYplugin, #YbrowserNplugin, #NbrowserYplugin, #NbrowserNplugin, #Title
 {
 	display: inline-block;
     float: left;
@@ -55,11 +55,46 @@ NbrowserYplugin a:hover
     width: 645px;
 }
 
+.wrap #TitleOrien
+{
+	display: inline-block;
+    float: left;
+    width: 290px;
+}
+
+.wrap #TitleConfig
+{
+	display: inline-block;
+    float: left;
+    width: 350px;
+}
+
+.wrap #TitleChoose
+{
+	display: inline-block;
+    float: left;
+    width: 460px;
+}
+
+.wrap #TitleConfirm
+{
+	display: inline-block;
+    float: left;
+    width: 420px;
+}
+
 .wrap #GoogleEarthImage
 {
 	display: inline-block;
     margin-top: 50px;
     width: 320px;
+}
+
+.wrap #GoogleEarthImageSmall
+{
+	display: inline-block;
+    margin-top: 5px;
+	width: 300px;
 }
 
 h2
@@ -106,8 +141,6 @@ input[type=button]:hover
 	list-style: none;
 	display: inline-block;
 	margin-left: 10px;
-	text-align: center;
-	width: 100%;
 }
 
 #Content ul li a
