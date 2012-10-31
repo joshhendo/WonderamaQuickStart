@@ -98,6 +98,18 @@ function LoadPosition()
 		document.getElementById('poslabel').innerHTML = 'Slave Right 2';
 	};
 };
+
+function goToSample()
+{
+	if (Get_Cookie('position') == "M")
+	{
+		window.location = "sample/master.html";
+	}
+	else
+	{
+		window.location = "sample/slave.html";
+	}
+}
 </script>
 </head>
 <body onLoad="LoadPosition();">
@@ -113,7 +125,7 @@ function LoadPosition()
         <li>It is rotated on a <b>"<script>document.write(Get_Cookie('rot'))</script>"</b> degree angle.</li>
     	<li>The field of view is <b>"<script>document.write(Get_Cookie('nfov'))</script>"</b></li>
         <li style="font-weight:bold">Click "Continue" to confirm these values for the Liquid Galaxy</li>
-        <li style="margin: 0px; padding: 0px"><input type="button" value="Continue "onClick="window.location.href='viewer.html'"></li>
+        <li style="margin: 0px; padding: 0px"><input type="button" value="Continue "onClick="goToSample();"></li>
         <li></li>
         <li></li>
     </ul>
