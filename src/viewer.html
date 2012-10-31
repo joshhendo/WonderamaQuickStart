@@ -129,6 +129,7 @@
 				lat = message[0];
 				lon = message[1];
 				nfov = message[2];
+				Set_Cookie( 'nfov', nfov * ZOOMFUDGE, 30, '/', '', '' );
 				NEW_FRAME = true;
 			}
 			else
