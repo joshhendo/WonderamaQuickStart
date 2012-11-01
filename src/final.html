@@ -173,12 +173,12 @@ function goToSample()
 </div>
 <div class="wrap">
 	<ul style="list-style:none;">
-    	<li>Please confirm the configuration settings below that have been set for your computer</li>
-        <li>This computer is the <label id="poslabel">NULL</label></li>
+    	<li><b>Please confirm the configuration settings below that have been set for your computer</b></li>
+        <li><br/>This computer is the <label id="poslabel">NULL</label></li>
         <li>It is rotated on a <b>"<script>document.write(Get_Cookie('rot'))</script>"</b> degree angle.</li>
     	<li>The field of view is <b>"<script>document.write(Get_Cookie('nfov'))</script>"</b></li>
-        <li style="font-weight:bold">Click "Continue" to confirm these values for the Liquid Galaxy</li>
-        <li style="margin: 0px; padding: 0px"><input type="button" value="Continue "onClick="continueToSample();"></li>
+        <li style="font-weight:bold"><br/>Click "Continue" to confirm these values for the Liquid Galaxy</li>
+        <li style="margin: 0px; padding: 0px"><br/><button type="submit" id="btnContinue" onclick="continueToSample();" >Continue</button></li>
         <li></li>
         <li></li>
     </ul>
