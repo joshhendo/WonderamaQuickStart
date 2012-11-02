@@ -1,8 +1,5 @@
 <?php
 
-// If you want to ignore the uploaded files, 
-// set $demo_mode to true;
-
 $demo_mode = false;
 $upload_dir = 'uploads/';
 $allowed_ext = array('kml', 'kmz');

@@ -1,4 +1,4 @@
-var confWebSocketServer = "ws://192.168.0.233:3001/ks1205";
+var confWebSocketServer = "ws://137.154.151.239:3001/ks1205";
 
 var textures = new Array();
 

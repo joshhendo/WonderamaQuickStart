@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>File Uploader</title>
         <!-- Including The jQuery Library -->
-		<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+		<script src="js/jquery-1.6.3.min.js"></script>
 		
 		<!-- Including the HTML5 Uploader plugin -->
 		<script src="js/jquery.filedrop.js"></script>
@@ -55,15 +55,18 @@ relaySocket.onmessage  = function (evt)
 	}
 }
 
-function doSend(message)
-{
-	 console.log("send:"+message);
-	 relaySocket.send(message);
-}	
+		function doSend(message)
+		{
+			 console.log("send:"+message);
+			 relaySocket.send(message);
+		}	
 
 function continueToFinal()
 {
+	alert('continuing!');
+
 	doSend("goto#final")
+
 	window.location = "final.html";
 }
 
@@ -89,7 +92,7 @@ function continueToFinal()
     
     </head>
     
-    <body onload="OnLoad()">
+    <body onLoad="OnLoad()">
 	
 		<div id="Wrapper">
             <div class="wrap">
@@ -112,7 +115,7 @@ function continueToFinal()
         	<ul>
             	<li>Note: Uploader page is design to upload KML and KMZ file that will be use as texture in Google Earth.</li>
                 <li></li>
-                <li><a href="#" onClick="continueToFinal()" ><strong>Click Here</strong> </a> to contine.</li>
+                <li> If you do not have file to upload. <a href="#" onClick="continueToFinal()" ><strong>Click Here</strong> </a> to skip.</li>
              </ul>
 		</div>
         
