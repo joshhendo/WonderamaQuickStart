@@ -13,25 +13,35 @@
 	<div id="pano" ></div>
 		
     <div id="settings">
-        	<h1>Options</h1>
-        	<p>L2: 
-        	  <input type="button" name="L2L" id="L2L" value="&lt;--" onClick="SendChange('L2', 'L')">
-        	  <input type="button" name="L2R" id="L2R" value="--&gt;" onClick="SendChange('L2', 'R')">
+        	<h1>Click and Drag to use</h1>
+			
+			<h1>Options</h1>
+        	<p>Left 2:&nbsp;&nbsp;&nbsp;
+        	  <input style="background-color:#156ccd; width: 23px; border: 1px solid #039; color: #FFF; cursor: pointer;"
+					 type="button" name="L2L" id="L2L" value="&lt;--" onClick="SendChange('L2', 'L')">
+        	  <input style="background-color:#156ccd; width: 23px; border: 1px solid #039; color: #FFF; cursor: pointer;"
+					 type="button" name="L2R" id="L2R" value="--&gt;" onClick="SendChange('L2', 'R')">
               <input name="L2ROT" id="L2ROT" type="text" size="2">
         	</p>
-        	<p>L1: 
-        	  <input type="button" name="L1L" id="L1L" value="&lt;--" onClick="SendChange('L1', 'L')">
-        	  <input type="button" name="L1R" id="L1R" value="--&gt;" onClick="SendChange('L1', 'R')">
+        	<p>Left 1:&nbsp;&nbsp;&nbsp;
+        	  <input style="background-color:#156ccd; width: 23px; border: 1px solid #039; color: #FFF; cursor: pointer;"
+					 type="button" name="L1L" id="L1L" value="&lt;--" onClick="SendChange('L1', 'L')">
+        	  <input style="background-color:#156ccd; width: 23px; border: 1px solid #039; color: #FFF; cursor: pointer;"
+					 type="button" name="L1R" id="L1R" value="--&gt;" onClick="SendChange('L1', 'R')">
               <input name="L1ROT" id="L1ROT" type="text" size="2">
         	</p>
-        	<p>R1: 
-        	  <input type="button" name="R1L" id="R1L" value="&lt;--" onClick="SendChange('R1', 'L')">
-        	  <input type="button" name="R1R" id="R1R" value="--&gt;" onClick="SendChange('R1', 'R')">
+        	<p>Right 1:&nbsp;
+        	  <input style="background-color:#156ccd; width: 23px; border: 1px solid #039; color: #FFF; cursor: pointer;"
+					 type="button" name="R1L" id="R1L" value="&lt;--" onClick="SendChange('R1', 'L')">
+        	  <input style="background-color:#156ccd; width: 23px; border: 1px solid #039; color: #FFF; cursor: pointer;"
+					 type="button" name="R1R" id="R1R" value="--&gt;" onClick="SendChange('R1', 'R')">
               <input name="R1ROT" id="R1ROT" type="text" size="2">
         	</p>
-        	<p>R2: 
-        	  <input type="button" name="R2L" id="R2L" value="&lt;--" onClick="SendChange('R2', 'L')">
-        	  <input type="button" name="R2R" id="R2R" value="--&gt;" onClick="SendChange('R2', 'R')">
+        	<p>Right 2:&nbsp;
+        	  <input style="background-color:#156ccd; width: 23px; border: 1px solid #039; color: #FFF; cursor: pointer;"
+					 type="button" name="R2L" id="R2L" value="&lt;--" onClick="SendChange('R2', 'L')">
+        	  <input style="background-color:#156ccd; width: 23px; border: 1px solid #039; color: #FFF; cursor: pointer;"
+					 type="button" name="R2R" id="R2R" value="--&gt;" onClick="SendChange('R2', 'R')">
               <input name="R2ROT" id="R2ROT" type="text" size="2">
         	</p>
             <p>
@@ -43,8 +53,13 @@
               <select name="texture" id="texture" onChange="textureChanged()"></select>
       </p>
             <p>
-              <input name="next" type="button" value="Next" onClick="continueToUpload()">
+			  <button style="background-color:#156ccd; width: 40px; border: 1px solid #039; color: #FFF; cursor: pointer;"
+					  type="submit" onclick="continueToUpload()" >Next</button>
             </p>
+			
+			<p>-Use the buttons next to Left 1-2 and Right 1-2 to change the rotation of the slaves connected</p>
+			<p>-Use the slider to change the field of view/zoom</p>
+			<p>-Change the background with the dropdown</p>
     </div>
 		
 		<div id="options" class="hide">
