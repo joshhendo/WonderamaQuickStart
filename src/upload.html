@@ -63,8 +63,6 @@ relaySocket.onmessage  = function (evt)
 
 function continueToFinal()
 {
-	alert('continuing!');
-
 	doSend("goto#final")
 
 	window.location = "final.html";
@@ -114,8 +112,10 @@ function continueToFinal()
         <div id="Content" class="wrap">
         	<ul>
             	<li>Note: Uploader page is design to upload KML and KMZ file that will be use as texture in Google Earth.</li>
-                <li></li>
-                <li> If you do not have file to upload. <a href="#" onClick="continueToFinal()" ><strong>Click Here</strong> </a> to skip.</li>
+                <br />
+                <li> You can continue without uploading anything.</li>
+                <br />
+                <li><button type="submit" id="btnContinue" onclick="continueToFinal()" >Next</button></li>
              </ul>
 		</div>
         
