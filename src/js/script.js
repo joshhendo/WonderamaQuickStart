@@ -34,7 +34,7 @@ $(function(){
 		
 		// Called before each upload is started
 		beforeEach: function(file){
-			if(!file.name.match('\.kml')){
+			if(!file.name.match('\.kml') && !file.name.match('\.kmz')){
 				alert('Please upload KML or KMZ only.!');
 				
 				// Returning false will cause the
