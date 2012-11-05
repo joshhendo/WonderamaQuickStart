@@ -33,7 +33,7 @@
 	function Check()
 	{
 		// if ANY cookie value isn't set, we can't use the existing configuration
-		if (Get_Cookie('position') == null || Get_Cookie('rot') == null) return false;
+		if (Get_Cookie('position') == null || Get_Cookie('position') == "null" || Get_Cookie('rot') == null || Get_Cookie('rot') == "null") return false;
 		
 		document.getElementById('current_position').innerHTML = Get_Cookie('position');
 		document.getElementById('current_rot').innerHTML = Get_Cookie('rot');
