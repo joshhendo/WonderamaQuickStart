@@ -25,6 +25,8 @@
  */
 (function($){
 
+	var uploaded = false;
+	
 	jQuery.event.props.push("dataTransfer");
 	var opts = {},
 		default_opts = {
@@ -139,6 +141,13 @@
     
     
 	function upload() {
+		if (uploaded)
+		{
+			alert('Only one file can be uploaded');
+			return;
+		}
+		uploaded = true;
+	
 		stop_loop = false;
 		if (!files) {
 			opts.error(errors[0]);
@@ -151,7 +160,7 @@
 		    opts.error(errors[1]);
 		    return false;
 		}
-
+		
 		for (var i=0; i<files_count; i++) {
 			if (stop_loop) return false;
 			try {
